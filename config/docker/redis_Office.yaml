@@ -1,0 +1,20 @@
+# Copyright 2023 Fortescue Metals Group Ltd. All rights reserved
+#
+# Override configuration for Redis for Office
+#
+# Some of the variables which can be inserted set by ImperiumServices::init_config_values()
+
+dynaconf_merge: true
+docker_services:
+  redis_Office:
+    image: "#{artifactory-repo}/docker-ams-fms-thirdparty/redis:6.2.6"
+    ports:
+      6379/tcp: "@format {this.override.redis.office_port}"
+    environment:
+      TZ: Australia/Perth
+    detach: true
+    remove: true
+    start_string: Ready to accept connections
+    run_options:
+      - local
+      - docker

@@ -1,0 +1,7 @@
+fms_service_ports:
+    AuditLog: 6100
+
+redis_ports:
+    FMS: 6389
+    Office: 6380
+    Field: 6379

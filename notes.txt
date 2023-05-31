@@ -1,0 +1,39 @@
+# how to run requirements.txt.txt file
+#https://stackoverflow.com/questions/31684375/automatically-create-requirements-txt
+#pip install -r requriments.txt     -r :it will execute any text file .
+
+#how to run   tc's with another robot cmd.
+    #python -m robot audit_log.robot
+    #python -m test_code -d  --remote_url local .\tests\audit_log\TC_audit_log.robot
+    # python -m test_code -d  --remote_url local --dryrun .\tests\audit_log\TC_audit_log.robot
+
+
+# To have reports in seprate folder
+    # robot --outputdir results  tcfilename.robot
+    #eg :: robot --outputdir results TC_audit_log.robot
+
+#Run Tc is multiple browsers
+    #robot --variable Variablename:browsername  dir/tc.robot
+    #eg::  robot --variable BROWSER:chrome
+
+# How run with tags  [url:https://testersdock.com/robot-framework-tags/]
+    # robot -d results -i tagname dir/tc.robot
+    #robot -d results -i Smoke Tests/Tags.robot
+     #-------------------------------------------------------
+    #-i Smoke -i Sanity---> it will run both smoke sanity tags cases
+    #-i Smoke (Include Smoke)
+     #-------------------------------------------------------
+    #robot -d results -e Smoke Tests/Tags.robot----> -e : exculed this mentioned tags
+    #-------------------------------------------------------
+    #*** Settings ***
+    #Force Tags  Testersdock
+    #robot -d results -i Testersdock Tests/Tags.robot--->irrespective of whether individual test cases had tags or not, all of the test cases were executed
+    #we can use multiples  tags too ---->        [Tags]    Smoke     Regression
+
+    #---------------------------
+    #How to import .py pom files in to robot files
+    #Library     foldername.filename/modulename.classname  WITH NAME  aliasname
+    #eg:Library     test_code.auditlog.audit_query_search.Audit_Search  WITH NAME  auditlog
+    #or
+    #Library     foldername.filename/modulename.classname  WITH NAME  auditlog (both module name & class name should same in camelcase)
+    #eg:Library     test_code.auditlog.AuditQuerySearch  WITH NAME  auditlog

@@ -1,0 +1,19 @@
+# Copyright 2023 Fortescue Metals Group Ltd. All rights reserved
+#
+# Override configuration for Zipkin
+#
+# Some of the variables which can be inserted set by ImperiumServices::init_config_values()
+
+dynaconf_merge: true
+docker_services:
+  zipkin:
+    image: "#{artifactory-repo}/docker-ams-fms-thirdparty/openzipkin/zipkin:2"
+    ports:
+      9411/tcp: "@format {this.override.zipkin.port}"
+    environment: {}
+    detach: true
+    remove: true
+    start_string: Serving HTTP at
+    run_options:
+      - local
+      - docker

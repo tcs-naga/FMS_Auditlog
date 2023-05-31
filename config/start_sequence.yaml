@@ -1,0 +1,11 @@
+fms_start_sequence:
+  - AuditLog
+
+docker_start_sequence:
+  - sqlserver
+  - redis_FMS
+  - redis_Office
+  - rabbitmq
+  - zipkin
+  - chrome
+  - firefox

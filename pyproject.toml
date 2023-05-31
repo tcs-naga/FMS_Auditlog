@@ -1,0 +1,57 @@
+[tool.poetry]
+name = "test_code"
+version = "0.1.0"
+description = ""
+authors = ["Rajesh Taneja <rajesh.taneja@fmgl.com.au>"]
+
+[tool.poetry.scripts]
+robot = "test_code.__main__:main"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+robotframework = "^4.1.3"
+robotframework-seleniumlibrary = "^6.0.0"
+webdrivermanager = "^0.10.0"
+psutil = "^5.9.0"
+robotframework-restlibrary = "^1.0"
+requests = "^2.27.1"
+jsonpath = "^0.82"
+jsonpath-ng = "^1.5.3"
+jsonschema = "^4.4.0"
+setuptools = "^60.9.3"
+RESTinstance = "^1.3.0"
+robotframework-debuglibrary = "^2.2.2"
+robotframework-docker = "^1.3.0"
+robotframework-pageobjectlibrary = "^1.1"
+robotframework-databaselibrary = "^1.2.4"
+pymssql-utils = "^0.3.0"
+pendulum = "^2.1.2"
+pika = "^1.2.1"
+PyGeodesy = "^22.6.9"
+redis = "^4.3.3"
+PyYAML = "^6.0"
+jira = "^3.3.1"
+Flask = "2.1.2"
+robotframework-requests = "^0.9.3"
+robotframework-jsonlibrary = "^0.5"
+dataclass-wizard = "^0.22.2"
+httpx = {extras = ["http2"], version = "^0.23.3"}
+asyncio = "^3.4.3"
+geopandas = "^0.12.2"
+dynaconf = "^3.1.11"
+Pillow = "^9.4.0"
+typer = {extras = ["all"], version = "^0.7.0"}
+rich-cli = "^1.8.0"
+dotmap = "^1.3.30"
+mirakuru = "^2.5.0"
+deepdiff = "^6.2.3"
+flask-cors = "^3.0.10"
+docker = "^6.0.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+autopep8 = "^1.6.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

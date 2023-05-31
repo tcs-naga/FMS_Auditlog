@@ -1,0 +1,38 @@
+# Copyright 2022 Fortescue Metals Group Ltd. All rights reserved
+#
+# This host file will be used by docker chrome/firefox to resolve hosts.
+127.0.0.1       localhost
+::1     localhost ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+
+# Docker swarm Dev
+{host_ip} field-signal.apps.dev.fms-swarm-nonprod.npe.apse2.fmgawsdev.cloud
+{host_ip} office-signal.apps.dev.fms-swarm-nonprod.npe.apse2.fmgawsdev.cloud
+{host_ip} qa-sim.apps.dev.fms-swarm-nonprod.npe.apse2.fmgawsdev.cloud
+
+# Docker swarm Test
+{host_ip} field-signal.apps.test.fms-swarm-nonprod.npe.apse2.fmgawsdev.cloud
+{host_ip} office-signal.apps.test.fms-swarm-nonprod.npe.apse2.fmgawsdev.cloud
+{host_ip} qa-sim.apps.test.fms-swarm-nonprod.npe.apse2.fmgawsdev.cloud
+
+# Docker swarm Int
+{host_ip} field-signal.apps.int.fms-swarm-nonprod.npe.apse2.fmgawsdev.cloud
+{host_ip} office-signal.apps.int.fms-swarm-nonprod.npe.apse2.fmgawsdev.cloud
+{host_ip} qa-sim.apps.int.fms-swarm-nonprod.npe.apse2.fmgawsdev.cloud
+
+# Docker swarm Staging
+{host_ip} field-signal.apps.stg.fms-swarm-nonprod.npe.apse2.fmgawsdev.cloud
+{host_ip} office-signal.apps.stg.fms-swarm-nonprod.npe.apse2.fmgawsdev.cloud
+{host_ip} qa-sim.apps.stg.fms-swarm-nonprod.npe.apse2.fmgawsdev.cloud
+
+# Docker hzltest
+{host_ip} field-signal.apps.hzltest.fms-swarm-nonprod.npe.apse2.fmgawsdev.cloud
+{host_ip} office-signal.apps.hzltest.fms-swarm-nonprod.npe.apse2.fmgawsdev.cloud
+{host_ip} qa-sim.apps.hzltest.fms-swarm-nonprod.npe.apse2.fmgawsdev.cloud
+
+# Local environment
+{host_ip} qa-sim.apps.fms-dev.local
+{host_ip} atf.apps.fms-dev.local

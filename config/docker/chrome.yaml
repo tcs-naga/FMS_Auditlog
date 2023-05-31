@@ -1,0 +1,29 @@
+# Copyright 2023 Fortescue Metals Group Ltd. All rights reserved
+#
+# Override configuration for Chrome
+#
+# Some of the variables which can be inserted set by ImperiumServices::init_config_values()
+
+dynaconf_merge: true
+docker_services:
+  chrome:
+    image: "@format {this.override.selenium.chrome.docker_image}"
+    ports:
+      4444/tcp: "@format {this.override.selenium.port}"
+      7900/tcp: "@format {this.override.selenium.vpn_port}"
+    environment:
+      ENABLE_CORS: "true"
+      VNC_NO_PASSWORD: "1"
+      SCREEN_WIDTH: "@format {this.override.selenium.width}"
+      SCREEN_HEIGHT: "@format {this.override.selenium.height}"
+      SCREEN_DEPTH: 24
+      TZ: Australia/Perth
+    detach: true
+    remove: true
+    shm_size: 3g
+    driver: "@format {this.override.selenium.chrome.driver}"
+    start_string: Started Selenium Standalone
+    run_options:
+      - local
+      - docker
+    start_once: true

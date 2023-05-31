@@ -1,0 +1,28 @@
+# Copyright 2023 Fortescue Metals Group Ltd. All rights reserved
+#
+# Override configuration for Assignment aggregator service
+#
+# Some of the variables which can be inserted are:
+#  - port: port is in ports.yaml and can be accessed using dynaconf
+#  - Following url's shortcut will be resolved  by code
+#    - rabbitmq: "#{rabbitmq-uri}"
+#    - redis fms: "#{redis-fms-uri}"
+#    - zipkin: "#{zipkin}"
+#    - services: "#{service-uri-ServiceName}". Name of the services are in fms/*.yaml file.
+#    - sql: "#{sql-uri-SchemaName}"
+# Test data directory which needs to be mapped
+#  - On host: "#{test_data_dir-material-types.json}"
+#  - In docker: "#{docker_data_dir-material-types.json}"
+
+dynaconf_merge: true
+imperium_services:
+  Aggregator:
+    path: ...
+    port: "@int @format {this.fms_service_ports.AuditLog}"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Local
+      ConnectionStrings__AssignmentAggregatorDbConnectionString: "#{sql-uri-AuditLog}"
+      MessageBus__BrokerUri: "#{rabbitmq-uri}"
+      Tracing__ZipkinEndpoint: "#{zipkin}"
+    docker_image: assignment-aggregator
+    start_string: Tracing dispatcher started

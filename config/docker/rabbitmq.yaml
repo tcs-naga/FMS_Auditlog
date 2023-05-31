@@ -1,0 +1,22 @@
+# Copyright 2023 Fortescue Metals Group Ltd. All rights reserved
+#
+# Override configuration for rabbitmq
+#
+# Some of the variables which can be inserted set by ImperiumServices::init_config_values()
+
+dynaconf_merge: true
+docker_services:
+  rabbitmq:
+    image: "#{artifactory-repo}/docker-ams-fms-thirdparty/rabbitmq:3.8.1-management"
+    ports:
+      15672/tcp: "@format {this.override.rabbitmq.manager_port}"
+      5672/tcp: "@format {this.override.rabbitmq.port}"
+    environment:
+      RABBITMQ_DEFAULT_USER: "@format {this.override.rabbitmq.user}"
+      RABBITMQ_DEFAULT_PASS: "@format {this.override.rabbitmq.password}"
+    detach: true
+    remove: true
+    start_string: Server startup complete
+    run_options:
+      - local
+      - docker

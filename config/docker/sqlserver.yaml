@@ -1,0 +1,21 @@
+# Copyright 2023 Fortescue Metals Group Ltd. All rights reserved
+#
+# Override configuration for Sql server
+#
+# Some of the variables which can be inserted set by ImperiumServices::init_config_values()
+
+dynaconf_merge: true
+docker_services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-GA-ubuntu-16.04
+    ports:
+      1433/tcp: "@format {this.override.sql.port}"
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "@format {this.override.sql.sa_password}"
+    detach: true
+    remove: true
+    start_string: The tempdb database has
+    run_options:
+      - local
+      - docker
