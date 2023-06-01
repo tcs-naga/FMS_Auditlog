@@ -41,3 +41,4 @@ class AuditQuerySearch(Basepage):
         """
         This method search the query with only date field in new audit query search screen
         """
+

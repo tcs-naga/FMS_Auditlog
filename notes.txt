@@ -37,3 +37,11 @@
     #or
     #Library     foldername.filename/modulename.classname  WITH NAME  auditlog (both module name & class name should same in camelcase)
     #eg:Library     test_code.auditlog.AuditQuerySearch  WITH NAME  auditlog
+
+    #pip list----> It will give all list of commnads
+
+#********************************************************************************************
+#API:
+# pip install requests
+#pip install robotframework-requests
+# pip install -U  robotframework-jsonlibrary
