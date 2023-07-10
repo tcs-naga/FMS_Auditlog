@@ -1,424 +1,832 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.3 (Python 3.10.11 on win32)" generated="20230601 16:01:52.308" rpa="false" schemaversion="2">
-<suite id="s1" name="Tc audit log" source="C:\FMGApps\FMS_Audit_Log_Automation\tests\audit_log\Tc_audit_log.robot">
+<robot generator="Robot 4.1.3 (Python 3.10.11 on win32)" generated="20230707 17:18:16.147" rpa="false" schemaversion="2">
+<suite id="s1" name="TC auditlog apitest" source="C:\FMGApps\FMS_Audit_Log_Automation\tests\audit_log\TC_auditlog_apitest.robot">
 <kw name="Import Library" library="BuiltIn">
 <arg>test_code.ImperiumServices</arg>
 <doc>Imports a library with the given name and optional arguments.</doc>
-<status status="PASS" starttime="20230601 16:01:54.704" endtime="20230601 16:01:55.368"/>
+<status status="PASS" starttime="20230707 17:18:16.717" endtime="20230707 17:18:18.187"/>
 </kw>
 <kw name="Import Library" library="BuiltIn">
 <arg>robot.libraries.Process</arg>
 <doc>Imports a library with the given name and optional arguments.</doc>
-<status status="PASS" starttime="20230601 16:01:55.516" endtime="20230601 16:01:55.521"/>
+<status status="PASS" starttime="20230707 17:18:18.399" endtime="20230707 17:18:18.406"/>
 </kw>
 <kw name="Import Library" library="BuiltIn">
 <arg>SeleniumLibrary</arg>
 <doc>Imports a library with the given name and optional arguments.</doc>
-<status status="PASS" starttime="20230601 16:01:55.521" endtime="20230601 16:01:55.522"/>
+<status status="PASS" starttime="20230707 17:18:18.407" endtime="20230707 17:18:18.770"/>
 </kw>
 <kw name="Import Library" library="BuiltIn">
 <arg>DebugLibrary</arg>
 <doc>Imports a library with the given name and optional arguments.</doc>
-<status status="PASS" starttime="20230601 16:01:55.523" endtime="20230601 16:01:55.811"/>
+<status status="PASS" starttime="20230707 17:18:18.770" endtime="20230707 17:18:19.092"/>
 </kw>
 <kw name="Import Library" library="BuiltIn">
 <arg>DatabaseLibrary</arg>
 <doc>Imports a library with the given name and optional arguments.</doc>
-<status status="PASS" starttime="20230601 16:01:55.811" endtime="20230601 16:01:55.831"/>
+<status status="PASS" starttime="20230707 17:18:19.092" endtime="20230707 17:18:19.107"/>
 </kw>
 <kw name="Import Library" library="BuiltIn">
 <arg>test_code.RobotEyes</arg>
 <doc>Imports a library with the given name and optional arguments.</doc>
-<status status="PASS" starttime="20230601 16:01:55.831" endtime="20230601 16:01:55.834"/>
+<status status="PASS" starttime="20230707 17:18:19.107" endtime="20230707 17:18:19.197"/>
 </kw>
 <kw name="Import Library" library="BuiltIn">
 <arg>test_code.Environment</arg>
 <doc>Imports a library with the given name and optional arguments.</doc>
-<status status="PASS" starttime="20230601 16:01:55.834" endtime="20230601 16:01:55.836"/>
+<status status="PASS" starttime="20230707 17:18:19.197" endtime="20230707 17:18:19.212"/>
 </kw>
 <kw name="Import Library" library="BuiltIn">
 <arg>test_code.Services</arg>
 <doc>Imports a library with the given name and optional arguments.</doc>
-<status status="PASS" starttime="20230601 16:01:55.836" endtime="20230601 16:01:55.845"/>
+<status status="PASS" starttime="20230707 17:18:19.212" endtime="20230707 17:18:19.227"/>
 </kw>
 <kw name="Import Library" library="BuiltIn">
 <arg>test_code.Imperium</arg>
 <doc>Imports a library with the given name and optional arguments.</doc>
-<status status="PASS" starttime="20230601 16:01:55.845" endtime="20230601 16:01:55.846"/>
+<status status="PASS" starttime="20230707 17:18:19.227" endtime="20230707 17:18:20.002"/>
 </kw>
-<test id="s1-t1" name="TC_001_Verify_all_elements_in Audit Query Search">
-<kw name="Go to Google" library="Utilities_Keywords" type="SETUP">
-<kw name="Open Link" library="test_code.Imperium">
-<arg>${URL}</arg>
-<arg>${TITLE}</arg>
-<arg>in_docker=${False}</arg>
-<doc>Open link</doc>
-<kw name="Open Link In Browser" library="test_code.Services">
-<arg>https://google.com</arg>
-<arg>Google</arg>
-<arg>local</arg>
-<doc>OPEN link in browser</doc>
-<kw name="Register Keyword To Run On Failure" library="SeleniumLibrary">
-<arg>None</arg>
-<doc>Sets the keyword to execute, when a SeleniumLibrary keyword fails.</doc>
-<msg timestamp="20230601 16:01:55.866" level="INFO">No keyword will be run on failure.</msg>
-<status status="PASS" starttime="20230601 16:01:55.866" endtime="20230601 16:01:55.866"/>
+<test id="s1-t1" name="TC_001_Verify CreateAudit API In Post Method">
+<kw name="Execute Create Audit Post Method">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${RequestBody}</var>
+<arg>assignment_Event=${assignment_Event}</arg>
+<arg>material= ${material}</arg>
+<arg>eventName=${eventName}</arg>
+<arg>source=${source}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230707 17:18:20.022" level="INFO">${RequestBody} = {'assignment_Event': 'AUT_TEST_Assignment_Event', 'material': ' AUT_TEST_Material', 'eventName': 'AUT_TEST_EventName', 'source': 'AUT_TEST_Source'}</msg>
+<status status="PASS" starttime="20230707 17:18:20.022" endtime="20230707 17:18:20.022"/>
 </kw>
-<kw name="Set Screenshot Directory" library="SeleniumLibrary">
-<arg>C:/FMGApps/FMS_Audit_Log_Automation/output/screenshots</arg>
-<doc>Sets the directory for captured screenshots.</doc>
-<status status="PASS" starttime="20230601 16:01:55.867" endtime="20230601 16:01:55.867"/>
-</kw>
-<kw name="Set Selenium Timeout" library="SeleniumLibrary">
-<arg>2</arg>
-<doc>Sets the timeout that is used by various keywords.</doc>
-<status status="PASS" starttime="20230601 16:01:55.870" endtime="20230601 16:01:55.870"/>
-</kw>
-<msg timestamp="20230601 16:01:55.870" level="INFO">Opening browser 'chrome' to base url 'https://google.com'.</msg>
-<msg timestamp="20230601 16:01:56.160" level="DEBUG">Started executable: `C:/FMGApps/FMS_Audit_Log_Automation/drivers/chromedriver.exe` in a child process with pid: 6508</msg>
-<msg timestamp="20230601 16:01:56.675" level="DEBUG">POST http://localhost:52414/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome", "pageLoadStrategy": "normal", "goog:chromeOptions": {"extensions": [], "args": ["--disable-dev-shm-usage", "ignore-certificate-errors", "--disable-site-isolation-trials", "--disable-web-security", "add_experimental_option(\"excludeSwitches\",[\"ignore-certificate-errors\"])"]}}}}</msg>
-<msg timestamp="20230601 16:01:56.676" level="DEBUG">Starting new HTTP connection (1): localhost:52414</msg>
-<msg timestamp="20230601 16:01:58.436" level="DEBUG">http://localhost:52414 "POST /session HTTP/1.1" 200 859</msg>
-<msg timestamp="20230601 16:01:58.437" level="DEBUG">Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"113.0.5672.127","chrome":{"chromedriverVersion":"113.0.5672.63 (0e1a4471d5ae5bf128b1bd8f4d627c8cbd55f70c-refs/branch-heads/5672@{#912})","userDataDir":"C:\\Users\\v3848\\AppData\\Local\\Temp\\scoped_dir6508_1040839398"},"goog:chromeOptions":{"debuggerAddress":"localhost:52418"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"windows","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"66bd784d957bf1897942e3ec484ff83f"}} | headers=HTTPHeaderDict({'Content-Length': '859', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
-<msg timestamp="20230601 16:01:58.437" level="DEBUG">Finished Request</msg>
-<msg timestamp="20230601 16:01:58.437" level="DEBUG">POST http://localhost:52414/session/66bd784d957bf1897942e3ec484ff83f/timeouts {"script": 2000}</msg>
-<msg timestamp="20230601 16:01:58.439" level="DEBUG">http://localhost:52414 "POST /session/66bd784d957bf1897942e3ec484ff83f/timeouts HTTP/1.1" 200 14</msg>
-<msg timestamp="20230601 16:01:58.439" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
-<msg timestamp="20230601 16:01:58.439" level="DEBUG">Finished Request</msg>
-<msg timestamp="20230601 16:01:58.440" level="DEBUG">POST http://localhost:52414/session/66bd784d957bf1897942e3ec484ff83f/timeouts {"implicit": 0}</msg>
-<msg timestamp="20230601 16:01:58.441" level="DEBUG">http://localhost:52414 "POST /session/66bd784d957bf1897942e3ec484ff83f/timeouts HTTP/1.1" 200 14</msg>
-<msg timestamp="20230601 16:01:58.441" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
-<msg timestamp="20230601 16:01:58.441" level="DEBUG">Finished Request</msg>
-<msg timestamp="20230601 16:01:58.442" level="DEBUG">POST http://localhost:52414/session/66bd784d957bf1897942e3ec484ff83f/url {"url": "https://google.com"}</msg>
-<msg timestamp="20230601 16:02:00.276" level="DEBUG">http://localhost:52414 "POST /session/66bd784d957bf1897942e3ec484ff83f/url HTTP/1.1" 200 14</msg>
-<msg timestamp="20230601 16:02:00.276" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
-<msg timestamp="20230601 16:02:00.276" level="DEBUG">Finished Request</msg>
-<msg timestamp="20230601 16:02:00.276" level="DEBUG">Opened browser with session id 66bd784d957bf1897942e3ec484ff83f.</msg>
-<msg timestamp="20230601 16:02:00.276" level="DEBUG">GET http://localhost:52414/session/66bd784d957bf1897942e3ec484ff83f/title {}</msg>
-<msg timestamp="20230601 16:02:00.301" level="DEBUG">http://localhost:52414 "GET /session/66bd784d957bf1897942e3ec484ff83f/title HTTP/1.1" 200 18</msg>
-<msg timestamp="20230601 16:02:00.302" level="DEBUG">Remote response: status=200 | data={"value":"Google"} | headers=HTTPHeaderDict({'Content-Length': '18', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
-<msg timestamp="20230601 16:02:00.302" level="DEBUG">Finished Request</msg>
-<msg timestamp="20230601 16:02:00.302" level="INFO">Page title is 'Google'.</msg>
-<kw name="Register Keyword To Run On Failure" library="SeleniumLibrary">
-<arg>Capture Page Screenshot</arg>
-<doc>Sets the keyword to execute, when a SeleniumLibrary keyword fails.</doc>
-<msg timestamp="20230601 16:02:00.304" level="INFO">Capture Page Screenshot will be run on failure.</msg>
-<status status="PASS" starttime="20230601 16:02:00.302" endtime="20230601 16:02:00.304"/>
-</kw>
-<msg timestamp="20230601 16:02:00.314" level="INFO">${BROWSER_OPENED} = True</msg>
-<status status="PASS" starttime="20230601 16:01:55.864" endtime="20230601 16:02:00.314"/>
-</kw>
-<kw name="Open Eyes" library="test_code.RobotEyes">
-<arg>SeleniumLibrary</arg>
-<arg>0</arg>
-<arg>None</arg>
-<arg>None</arg>
-<arg>None</arg>
-<msg timestamp="20230601 16:02:00.324" level="DEBUG">roboteyestestfolder: TC_001_Verify_all_elements_in_Audit_Query_Search</msg>
-<status status="PASS" starttime="20230601 16:02:00.320" endtime="20230601 16:02:00.324"/>
-</kw>
-<status status="PASS" starttime="20230601 16:01:55.863" endtime="20230601 16:02:00.325"/>
-</kw>
-<kw name="Maximize Browser Window" library="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<msg timestamp="20230601 16:02:00.326" level="DEBUG">POST http://localhost:52414/session/66bd784d957bf1897942e3ec484ff83f/window/maximize {}</msg>
-<msg timestamp="20230601 16:02:00.460" level="DEBUG">http://localhost:52414 "POST /session/66bd784d957bf1897942e3ec484ff83f/window/maximize HTTP/1.1" 200 51</msg>
-<msg timestamp="20230601 16:02:00.460" level="DEBUG">Remote response: status=200 | data={"value":{"height":744,"width":1382,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
-<msg timestamp="20230601 16:02:00.461" level="DEBUG">Finished Request</msg>
-<status status="PASS" starttime="20230601 16:02:00.325" endtime="20230601 16:02:00.461"/>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${BODY}</var>
+<arg>objectid=${OBJECT_ID}</arg>
+<arg>changedByType=${changedByType}</arg>
+<arg>object=${object}</arg>
+<arg>entity=${api_entity}</arg>
+<arg>changedByID=${changedByID}</arg>
+<arg>requestBody=${RequestBody}</arg>
+<arg>requestURL=${requestURL}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230707 17:18:20.037" level="INFO">${BODY} = {'objectid': '9BD037FC-8EC3-4EEB-9C99-5F8001049EED', 'changedByType': 'AUT_TEST_CI_1', 'object': 'AUT_TEST_EVENT_1', 'entity': 'AUT_TEST_ENTITY_1', 'changedByID': 'AUT_TEST_USER_1', 'requestBody': {'a...</msg>
+<status status="PASS" starttime="20230707 17:18:20.022" endtime="20230707 17:18:20.037"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
-<arg>5s</arg>
+<arg>3</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230601 16:02:05.477" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20230601 16:02:00.461" endtime="20230601 16:02:05.478"/>
+<msg timestamp="20230707 17:18:23.051" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230707 17:18:20.037" endtime="20230707 17:18:23.051"/>
 </kw>
-<status status="PASS" starttime="20230601 16:01:55.862" endtime="20230601 16:02:05.479"/>
-</kw>
-<kw name="Verify Of All Elements In Audit Query Search">
-<kw name="Verification Of All Elements In Audit Query Search" library="auditlog">
-<doc>Verification Of All Elements In Audit Query Search</doc>
-<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
-<arg>name:q</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<msg timestamp="20230601 16:02:05.485" level="DEBUG">POST http://localhost:52414/session/66bd784d957bf1897942e3ec484ff83f/elements {"using": "css selector", "value": "[name=\"q\"]"}</msg>
-<msg timestamp="20230601 16:02:05.502" level="DEBUG">http://localhost:52414 "POST /session/66bd784d957bf1897942e3ec484ff83f/elements HTTP/1.1" 200 96</msg>
-<msg timestamp="20230601 16:02:05.502" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"F3F7974507D2EC4ADAF8EACFCB28A889_element_2"}]} | headers=HTTPHeaderDict({'Content-Length': '96', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
-<msg timestamp="20230601 16:02:05.503" level="DEBUG">Finished Request</msg>
-<status status="PASS" starttime="20230601 16:02:05.483" endtime="20230601 16:02:05.503"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>name:q</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20230601 16:02:05.504" level="DEBUG">POST http://localhost:52414/session/66bd784d957bf1897942e3ec484ff83f/elements {"using": "css selector", "value": "[name=\"q\"]"}</msg>
-<msg timestamp="20230601 16:02:05.516" level="DEBUG">http://localhost:52414 "POST /session/66bd784d957bf1897942e3ec484ff83f/elements HTTP/1.1" 200 96</msg>
-<msg timestamp="20230601 16:02:05.517" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"F3F7974507D2EC4ADAF8EACFCB28A889_element_2"}]} | headers=HTTPHeaderDict({'Content-Length': '96', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
-<msg timestamp="20230601 16:02:05.517" level="DEBUG">Finished Request</msg>
-<msg timestamp="20230601 16:02:05.517" level="INFO">Current page contains element 'name:q'.</msg>
-<status status="PASS" starttime="20230601 16:02:05.503" endtime="20230601 16:02:05.517"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
-<arg>name:q</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<msg timestamp="20230601 16:02:05.518" level="DEBUG">POST http://localhost:52414/session/66bd784d957bf1897942e3ec484ff83f/elements {"using": "css selector", "value": "[name=\"q\"]"}</msg>
-<msg timestamp="20230601 16:02:05.527" level="DEBUG">http://localhost:52414 "POST /session/66bd784d957bf1897942e3ec484ff83f/elements HTTP/1.1" 200 96</msg>
-<msg timestamp="20230601 16:02:05.527" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"F3F7974507D2EC4ADAF8EACFCB28A889_element_2"}]} | headers=HTTPHeaderDict({'Content-Length': '96', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
-<msg timestamp="20230601 16:02:05.527" level="DEBUG">Finished Request</msg>
-<status status="PASS" starttime="20230601 16:02:05.517" endtime="20230601 16:02:05.527"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>name:q</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20230601 16:02:05.529" level="DEBUG">POST http://localhost:52414/session/66bd784d957bf1897942e3ec484ff83f/elements {"using": "css selector", "value": "[name=\"q\"]"}</msg>
-<msg timestamp="20230601 16:02:05.538" level="DEBUG">http://localhost:52414 "POST /session/66bd784d957bf1897942e3ec484ff83f/elements HTTP/1.1" 200 96</msg>
-<msg timestamp="20230601 16:02:05.538" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"F3F7974507D2EC4ADAF8EACFCB28A889_element_2"}]} | headers=HTTPHeaderDict({'Content-Length': '96', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
-<msg timestamp="20230601 16:02:05.538" level="DEBUG">Finished Request</msg>
-<msg timestamp="20230601 16:02:05.538" level="INFO">Current page contains element 'name:q'.</msg>
-<status status="PASS" starttime="20230601 16:02:05.528" endtime="20230601 16:02:05.538"/>
-</kw>
-<status status="PASS" starttime="20230601 16:02:05.482" endtime="20230601 16:02:05.538"/>
-</kw>
-<status status="PASS" starttime="20230601 16:02:05.480" endtime="20230601 16:02:05.539"/>
-</kw>
-<kw name="Close Browser" library="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<msg timestamp="20230601 16:02:05.540" level="DEBUG">Closing browser with session id 66bd784d957bf1897942e3ec484ff83f.</msg>
-<msg timestamp="20230601 16:02:05.540" level="DEBUG">DELETE http://localhost:52414/session/66bd784d957bf1897942e3ec484ff83f {}</msg>
-<msg timestamp="20230601 16:02:05.762" level="DEBUG">http://localhost:52414 "DELETE /session/66bd784d957bf1897942e3ec484ff83f HTTP/1.1" 200 14</msg>
-<msg timestamp="20230601 16:02:05.762" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
-<msg timestamp="20230601 16:02:05.762" level="DEBUG">Finished Request</msg>
-<status status="PASS" starttime="20230601 16:02:05.540" endtime="20230601 16:02:07.946"/>
-</kw>
-<kw name="Stop All Services" library="test_code.Services">
-<doc>Stop all services started. if 'skip_error_check_in_log' set True then log file
-will not be checked for error.</doc>
-<status status="PASS" starttime="20230601 16:02:07.949" endtime="20230601 16:02:07.949"/>
-</kw>
-<tag>FMS_Regression</tag>
-<tag>Regression</tag>
-<tag>test</tag>
-<status status="PASS" starttime="20230601 16:01:55.855" endtime="20230601 16:02:05.539"/>
-</test>
-<test id="s1-t2" name="TC_002_Simple_example Search_in_Audit Query Search">
-<kw name="Go to Google" library="Utilities_Keywords" type="SETUP">
-<kw name="Open Link" library="test_code.Imperium">
-<arg>${URL}</arg>
-<arg>${TITLE}</arg>
-<arg>in_docker=${False}</arg>
-<doc>Open link</doc>
-<kw name="Open Link In Browser" library="test_code.Services">
-<arg>https://google.com</arg>
-<arg>Google</arg>
-<arg>local</arg>
-<doc>OPEN link in browser</doc>
-<kw name="Register Keyword To Run On Failure" library="SeleniumLibrary">
-<arg>None</arg>
-<doc>Sets the keyword to execute, when a SeleniumLibrary keyword fails.</doc>
-<msg timestamp="20230601 16:02:07.965" level="INFO">No keyword will be run on failure.</msg>
-<status status="PASS" starttime="20230601 16:02:07.964" endtime="20230601 16:02:07.965"/>
-</kw>
-<kw name="Set Screenshot Directory" library="SeleniumLibrary">
-<arg>C:/FMGApps/FMS_Audit_Log_Automation/output/screenshots</arg>
-<doc>Sets the directory for captured screenshots.</doc>
-<status status="PASS" starttime="20230601 16:02:07.965" endtime="20230601 16:02:07.966"/>
-</kw>
-<kw name="Set Selenium Timeout" library="SeleniumLibrary">
-<arg>2</arg>
-<doc>Sets the timeout that is used by various keywords.</doc>
-<status status="PASS" starttime="20230601 16:02:07.969" endtime="20230601 16:02:07.969"/>
-</kw>
-<msg timestamp="20230601 16:02:07.969" level="INFO">Opening browser 'chrome' to base url 'https://google.com'.</msg>
-<msg timestamp="20230601 16:02:07.981" level="DEBUG">Started executable: `C:/FMGApps/FMS_Audit_Log_Automation/drivers/chromedriver.exe` in a child process with pid: 12568</msg>
-<msg timestamp="20230601 16:02:08.492" level="DEBUG">POST http://localhost:52440/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome", "pageLoadStrategy": "normal", "goog:chromeOptions": {"extensions": [], "args": ["--disable-dev-shm-usage", "ignore-certificate-errors", "--disable-site-isolation-trials", "--disable-web-security", "add_experimental_option(\"excludeSwitches\",[\"ignore-certificate-errors\"])"]}}}}</msg>
-<msg timestamp="20230601 16:02:08.493" level="DEBUG">Starting new HTTP connection (1): localhost:52440</msg>
-<msg timestamp="20230601 16:02:10.061" level="DEBUG">http://localhost:52440 "POST /session HTTP/1.1" 200 860</msg>
-<msg timestamp="20230601 16:02:10.064" level="DEBUG">Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"113.0.5672.127","chrome":{"chromedriverVersion":"113.0.5672.63 (0e1a4471d5ae5bf128b1bd8f4d627c8cbd55f70c-refs/branch-heads/5672@{#912})","userDataDir":"C:\\Users\\v3848\\AppData\\Local\\Temp\\scoped_dir12568_1145068793"},"goog:chromeOptions":{"debuggerAddress":"localhost:52443"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"windows","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"a72860db669a141e64224dcfddf67655"}} | headers=HTTPHeaderDict({'Content-Length': '860', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
-<msg timestamp="20230601 16:02:10.064" level="DEBUG">Finished Request</msg>
-<msg timestamp="20230601 16:02:10.065" level="DEBUG">POST http://localhost:52440/session/a72860db669a141e64224dcfddf67655/timeouts {"script": 2000}</msg>
-<msg timestamp="20230601 16:02:10.070" level="DEBUG">http://localhost:52440 "POST /session/a72860db669a141e64224dcfddf67655/timeouts HTTP/1.1" 200 14</msg>
-<msg timestamp="20230601 16:02:10.071" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
-<msg timestamp="20230601 16:02:10.071" level="DEBUG">Finished Request</msg>
-<msg timestamp="20230601 16:02:10.071" level="DEBUG">POST http://localhost:52440/session/a72860db669a141e64224dcfddf67655/timeouts {"implicit": 0}</msg>
-<msg timestamp="20230601 16:02:10.075" level="DEBUG">http://localhost:52440 "POST /session/a72860db669a141e64224dcfddf67655/timeouts HTTP/1.1" 200 14</msg>
-<msg timestamp="20230601 16:02:10.075" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
-<msg timestamp="20230601 16:02:10.076" level="DEBUG">Finished Request</msg>
-<msg timestamp="20230601 16:02:10.076" level="DEBUG">POST http://localhost:52440/session/a72860db669a141e64224dcfddf67655/url {"url": "https://google.com"}</msg>
-<msg timestamp="20230601 16:02:11.695" level="DEBUG">http://localhost:52440 "POST /session/a72860db669a141e64224dcfddf67655/url HTTP/1.1" 200 14</msg>
-<msg timestamp="20230601 16:02:11.695" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
-<msg timestamp="20230601 16:02:11.696" level="DEBUG">Finished Request</msg>
-<msg timestamp="20230601 16:02:11.696" level="DEBUG">Opened browser with session id a72860db669a141e64224dcfddf67655.</msg>
-<msg timestamp="20230601 16:02:11.696" level="DEBUG">GET http://localhost:52440/session/a72860db669a141e64224dcfddf67655/title {}</msg>
-<msg timestamp="20230601 16:02:11.704" level="DEBUG">http://localhost:52440 "GET /session/a72860db669a141e64224dcfddf67655/title HTTP/1.1" 200 18</msg>
-<msg timestamp="20230601 16:02:11.704" level="DEBUG">Remote response: status=200 | data={"value":"Google"} | headers=HTTPHeaderDict({'Content-Length': '18', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
-<msg timestamp="20230601 16:02:11.705" level="DEBUG">Finished Request</msg>
-<msg timestamp="20230601 16:02:11.705" level="INFO">Page title is 'Google'.</msg>
-<kw name="Register Keyword To Run On Failure" library="SeleniumLibrary">
-<arg>Capture Page Screenshot</arg>
-<doc>Sets the keyword to execute, when a SeleniumLibrary keyword fails.</doc>
-<msg timestamp="20230601 16:02:11.707" level="INFO">Capture Page Screenshot will be run on failure.</msg>
-<status status="PASS" starttime="20230601 16:02:11.705" endtime="20230601 16:02:11.707"/>
-</kw>
-<msg timestamp="20230601 16:02:11.714" level="INFO">${BROWSER_OPENED} = True</msg>
-<status status="PASS" starttime="20230601 16:02:07.961" endtime="20230601 16:02:11.715"/>
-</kw>
-<kw name="Open Eyes" library="test_code.RobotEyes">
-<arg>SeleniumLibrary</arg>
-<arg>0</arg>
-<arg>None</arg>
-<arg>None</arg>
-<arg>None</arg>
-<msg timestamp="20230601 16:02:11.723" level="DEBUG">roboteyestestfolder: TC_002_Simple_example_Search_in_Audit_Query_Search</msg>
-<status status="PASS" starttime="20230601 16:02:11.718" endtime="20230601 16:02:11.723"/>
-</kw>
-<status status="PASS" starttime="20230601 16:02:07.961" endtime="20230601 16:02:11.724"/>
-</kw>
-<kw name="Maximize Browser Window" library="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<msg timestamp="20230601 16:02:11.726" level="DEBUG">POST http://localhost:52440/session/a72860db669a141e64224dcfddf67655/window/maximize {}</msg>
-<msg timestamp="20230601 16:02:11.864" level="DEBUG">http://localhost:52440 "POST /session/a72860db669a141e64224dcfddf67655/window/maximize HTTP/1.1" 200 51</msg>
-<msg timestamp="20230601 16:02:11.865" level="DEBUG">Remote response: status=200 | data={"value":{"height":744,"width":1382,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
-<msg timestamp="20230601 16:02:11.865" level="DEBUG">Finished Request</msg>
-<status status="PASS" starttime="20230601 16:02:11.724" endtime="20230601 16:02:11.865"/>
+<kw name="Dumps" library="json">
+<var>${req_json}</var>
+<arg>${BODY}</arg>
+<doc>Serialize ``obj`` to a JSON formatted ``str``.</doc>
+<msg timestamp="20230707 17:18:23.051" level="INFO">${req_json} = {"objectid": "9BD037FC-8EC3-4EEB-9C99-5F8001049EED", "changedByType": "AUT_TEST_CI_1", "object": "AUT_TEST_EVENT_1", "entity": "AUT_TEST_ENTITY_1", "changedByID": "AUT_TEST_USER_1", "requestBody": {"a...</msg>
+<status status="PASS" starttime="20230707 17:18:23.051" endtime="20230707 17:18:23.051"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
-<arg>5s</arg>
+<arg>3</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230601 16:02:16.880" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20230601 16:02:11.866" endtime="20230601 16:02:16.880"/>
+<msg timestamp="20230707 17:18:26.066" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230707 17:18:23.051" endtime="20230707 17:18:26.066"/>
 </kw>
-<status status="PASS" starttime="20230601 16:02:07.960" endtime="20230601 16:02:16.881"/>
+<kw name="Post Api Method" library="auditlogapi">
+<var>${result}</var>
+<arg>${CREATE_AUDIT_POST_URL}</arg>
+<arg>${req_json}</arg>
+<doc>Post API Method</doc>
+<msg timestamp="20230707 17:18:28.071" level="DEBUG">Starting new HTTP connection (1): localhost:5000</msg>
+<msg timestamp="20230707 17:18:28.303" level="DEBUG">http://localhost:5000 "POST /CreateAudit HTTP/1.1" 201 None</msg>
+<msg timestamp="20230707 17:18:33.314" level="INFO">${result} = {'status_code': '201', 'Content': b'{"objectId":"9bd037fc-8ec3-4eeb-9c99-5f8001049eed","object":"AUT_TEST_EVENT_1","entity":"AUT_TEST_ENTITY_1","changedByID":"AUT_TEST_USER_1","changedByType":"AUT_TES...</msg>
+<status status="PASS" starttime="20230707 17:18:26.066" endtime="20230707 17:18:33.314"/>
 </kw>
-<kw name="Simple Search" library="Utilities_Keywords">
-<arg>FMG</arg>
-<kw name="Demo" library="auditlog">
-<arg>name:q</arg>
-<arg>${SearchWord}</arg>
-<doc>Demo</doc>
-<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
-<arg>name:q</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<msg timestamp="20230601 16:02:16.885" level="DEBUG">POST http://localhost:52440/session/a72860db669a141e64224dcfddf67655/elements {"using": "css selector", "value": "[name=\"q\"]"}</msg>
-<msg timestamp="20230601 16:02:16.901" level="DEBUG">http://localhost:52440 "POST /session/a72860db669a141e64224dcfddf67655/elements HTTP/1.1" 200 96</msg>
-<msg timestamp="20230601 16:02:16.901" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"DEA4A808B5BDDB54C91F8C070B914C12_element_2"}]} | headers=HTTPHeaderDict({'Content-Length': '96', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
-<msg timestamp="20230601 16:02:16.902" level="DEBUG">Finished Request</msg>
-<status status="PASS" starttime="20230601 16:02:16.884" endtime="20230601 16:02:16.902"/>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230707 17:18:36.316" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230707 17:18:33.314" endtime="20230707 17:18:36.316"/>
 </kw>
-<kw name="Press Keys" library="SeleniumLibrary">
-<arg>name:q</arg>
-<arg>CTRL+A+DELETE</arg>
-<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<msg timestamp="20230601 16:02:16.903" level="INFO">Sending key(s) ('CTRL+A+DELETE',) to name:q element.</msg>
-<msg timestamp="20230601 16:02:16.903" level="DEBUG">POST http://localhost:52440/session/a72860db669a141e64224dcfddf67655/elements {"using": "css selector", "value": "[name=\"q\"]"}</msg>
-<msg timestamp="20230601 16:02:16.913" level="DEBUG">http://localhost:52440 "POST /session/a72860db669a141e64224dcfddf67655/elements HTTP/1.1" 200 96</msg>
-<msg timestamp="20230601 16:02:16.913" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"DEA4A808B5BDDB54C91F8C070B914C12_element_2"}]} | headers=HTTPHeaderDict({'Content-Length': '96', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
-<msg timestamp="20230601 16:02:16.913" level="DEBUG">Finished Request</msg>
-<msg timestamp="20230601 16:02:16.913" level="DEBUG">Workaround for Selenium 3 bug.</msg>
-<msg timestamp="20230601 16:02:16.914" level="DEBUG">POST http://localhost:52440/session/a72860db669a141e64224dcfddf67655/actions {"actions": [{"type": "pointer", "parameters": {"pointerType": "mouse"}, "id": "mouse", "actions": [{"type": "pointerMove", "duration": 250, "x": 0, "y": 0, "origin": {"element-6066-11e4-a52e-4f735466cecf": "DEA4A808B5BDDB54C91F8C070B914C12_element_2"}}, {"type": "pointerDown", "duration": 0, "button": 0}, {"type": "pointerUp", "duration": 0, "button": 0}]}, {"type": "key", "id": "key", "actions": [{"type": "pause", "duration": 0}, {"type": "pause", "duration": 0}, {"type": "pause", "duration": 0}]}]}</msg>
-<msg timestamp="20230601 16:02:17.230" level="DEBUG">http://localhost:52440 "POST /session/a72860db669a141e64224dcfddf67655/actions HTTP/1.1" 200 14</msg>
-<msg timestamp="20230601 16:02:17.231" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
-<msg timestamp="20230601 16:02:17.231" level="DEBUG">Finished Request</msg>
-<msg timestamp="20230601 16:02:17.231" level="INFO">Pressing special key CONTROL down.</msg>
-<msg timestamp="20230601 16:02:17.231" level="INFO">Sending key A</msg>
-<msg timestamp="20230601 16:02:17.231" level="INFO">Pressing special key DELETE down.</msg>
-<msg timestamp="20230601 16:02:17.231" level="INFO">Releasing special key CONTROL.</msg>
-<msg timestamp="20230601 16:02:17.231" level="INFO">Releasing special key DELETE.</msg>
-<msg timestamp="20230601 16:02:17.231" level="DEBUG">POST http://localhost:52440/session/a72860db669a141e64224dcfddf67655/actions {"actions": [{"type": "pointer", "parameters": {"pointerType": "mouse"}, "id": "mouse", "actions": [{"type": "pause", "duration": 0}, {"type": "pause", "duration": 0}, {"type": "pause", "duration": 0}, {"type": "pause", "duration": 0}, {"type": "pause", "duration": 0}, {"type": "pause", "duration": 0}]}, {"type": "key", "id": "key", "actions": [{"type": "keyDown", "value": "\ue009"}, {"type": "keyDown", "value": "A"}, {"type": "keyUp", "value": "A"}, {"type": "keyDown", "value": "\ue017"}, {"type": "keyUp", "value": "\ue009"}, {"type": "keyUp", "value": "\ue017"}]}]}</msg>
-<msg timestamp="20230601 16:02:17.248" level="DEBUG">http://localhost:52440 "POST /session/a72860db669a141e64224dcfddf67655/actions HTTP/1.1" 200 14</msg>
-<msg timestamp="20230601 16:02:17.248" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
-<msg timestamp="20230601 16:02:17.248" level="DEBUG">Finished Request</msg>
-<status status="PASS" starttime="20230601 16:02:16.902" endtime="20230601 16:02:17.249"/>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result}[status_code]</arg>
+<arg>201</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<msg timestamp="20230707 17:18:36.317" level="DEBUG">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20230707 17:18:36.316" endtime="20230707 17:18:36.318"/>
 </kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>name:q</arg>
-<arg>FMG</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230601 16:02:17.250" level="INFO">Typing text 'FMG' into text field 'name:q'.</msg>
-<msg timestamp="20230601 16:02:17.250" level="DEBUG">POST http://localhost:52440/session/a72860db669a141e64224dcfddf67655/elements {"using": "css selector", "value": "[name=\"q\"]"}</msg>
-<msg timestamp="20230601 16:02:17.260" level="DEBUG">http://localhost:52440 "POST /session/a72860db669a141e64224dcfddf67655/elements HTTP/1.1" 200 96</msg>
-<msg timestamp="20230601 16:02:17.260" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"DEA4A808B5BDDB54C91F8C070B914C12_element_2"}]} | headers=HTTPHeaderDict({'Content-Length': '96', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
-<msg timestamp="20230601 16:02:17.260" level="DEBUG">Finished Request</msg>
-<msg timestamp="20230601 16:02:17.260" level="DEBUG">POST http://localhost:52440/session/a72860db669a141e64224dcfddf67655/element/DEA4A808B5BDDB54C91F8C070B914C12_element_2/clear {"id": "DEA4A808B5BDDB54C91F8C070B914C12_element_2"}</msg>
-<msg timestamp="20230601 16:02:17.302" level="DEBUG">http://localhost:52440 "POST /session/a72860db669a141e64224dcfddf67655/element/DEA4A808B5BDDB54C91F8C070B914C12_element_2/clear HTTP/1.1" 200 14</msg>
-<msg timestamp="20230601 16:02:17.302" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
-<msg timestamp="20230601 16:02:17.303" level="DEBUG">Finished Request</msg>
-<msg timestamp="20230601 16:02:17.303" level="DEBUG">POST http://localhost:52440/session/a72860db669a141e64224dcfddf67655/element/DEA4A808B5BDDB54C91F8C070B914C12_element_2/value {"text": "FMG", "value": ["F", "M", "G"], "id": "DEA4A808B5BDDB54C91F8C070B914C12_element_2"}</msg>
-<msg timestamp="20230601 16:02:17.366" level="DEBUG">http://localhost:52440 "POST /session/a72860db669a141e64224dcfddf67655/element/DEA4A808B5BDDB54C91F8C070B914C12_element_2/value HTTP/1.1" 200 14</msg>
-<msg timestamp="20230601 16:02:17.366" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
-<msg timestamp="20230601 16:02:17.366" level="DEBUG">Finished Request</msg>
-<status status="PASS" starttime="20230601 16:02:17.249" endtime="20230601 16:02:17.366"/>
-</kw>
-<status status="PASS" starttime="20230601 16:02:16.884" endtime="20230601 16:02:17.367"/>
-</kw>
-<kw name="Press Keys" library="SeleniumLibrary">
-<arg>name:q</arg>
-<arg>ENTER</arg>
-<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<msg timestamp="20230601 16:02:17.368" level="INFO">Sending key(s) ('ENTER',) to name:q element.</msg>
-<msg timestamp="20230601 16:02:17.368" level="DEBUG">POST http://localhost:52440/session/a72860db669a141e64224dcfddf67655/elements {"using": "css selector", "value": "[name=\"q\"]"}</msg>
-<msg timestamp="20230601 16:02:17.378" level="DEBUG">http://localhost:52440 "POST /session/a72860db669a141e64224dcfddf67655/elements HTTP/1.1" 200 96</msg>
-<msg timestamp="20230601 16:02:17.378" level="DEBUG">Remote response: status=200 | data={"value":[{"element-6066-11e4-a52e-4f735466cecf":"DEA4A808B5BDDB54C91F8C070B914C12_element_2"}]} | headers=HTTPHeaderDict({'Content-Length': '96', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
-<msg timestamp="20230601 16:02:17.378" level="DEBUG">Finished Request</msg>
-<msg timestamp="20230601 16:02:17.378" level="DEBUG">Workaround for Selenium 3 bug.</msg>
-<msg timestamp="20230601 16:02:17.379" level="DEBUG">POST http://localhost:52440/session/a72860db669a141e64224dcfddf67655/actions {"actions": [{"type": "pointer", "parameters": {"pointerType": "mouse"}, "id": "mouse", "actions": [{"type": "pointerMove", "duration": 250, "x": 0, "y": 0, "origin": {"element-6066-11e4-a52e-4f735466cecf": "DEA4A808B5BDDB54C91F8C070B914C12_element_2"}}, {"type": "pointerDown", "duration": 0, "button": 0}, {"type": "pointerUp", "duration": 0, "button": 0}]}, {"type": "key", "id": "key", "actions": [{"type": "pause", "duration": 0}, {"type": "pause", "duration": 0}, {"type": "pause", "duration": 0}]}]}</msg>
-<msg timestamp="20230601 16:02:17.662" level="DEBUG">http://localhost:52440 "POST /session/a72860db669a141e64224dcfddf67655/actions HTTP/1.1" 200 14</msg>
-<msg timestamp="20230601 16:02:17.662" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
-<msg timestamp="20230601 16:02:17.662" level="DEBUG">Finished Request</msg>
-<msg timestamp="20230601 16:02:17.663" level="INFO">Pressing special key ENTER to element.</msg>
-<msg timestamp="20230601 16:02:17.663" level="INFO">Releasing special key ENTER.</msg>
-<msg timestamp="20230601 16:02:17.663" level="DEBUG">POST http://localhost:52440/session/a72860db669a141e64224dcfddf67655/actions {"actions": [{"type": "pointer", "parameters": {"pointerType": "mouse"}, "id": "mouse", "actions": [{"type": "pause", "duration": 0}, {"type": "pause", "duration": 0}, {"type": "pause", "duration": 0}]}, {"type": "key", "id": "key", "actions": [{"type": "keyDown", "value": "\ue007"}, {"type": "keyUp", "value": "\ue007"}, {"type": "keyUp", "value": "\ue007"}]}]}</msg>
-<msg timestamp="20230601 16:02:20.329" level="DEBUG">http://localhost:52440 "POST /session/a72860db669a141e64224dcfddf67655/actions HTTP/1.1" 200 14</msg>
-<msg timestamp="20230601 16:02:20.329" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
-<msg timestamp="20230601 16:02:20.329" level="DEBUG">Finished Request</msg>
-<status status="PASS" starttime="20230601 16:02:17.367" endtime="20230601 16:02:20.329"/>
-</kw>
-<status status="PASS" starttime="20230601 16:02:16.882" endtime="20230601 16:02:20.330"/>
-</kw>
-<kw name="Close Browser" library="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<msg timestamp="20230601 16:02:20.331" level="DEBUG">Closing browser with session id a72860db669a141e64224dcfddf67655.</msg>
-<msg timestamp="20230601 16:02:20.331" level="DEBUG">DELETE http://localhost:52440/session/a72860db669a141e64224dcfddf67655 {}</msg>
-<msg timestamp="20230601 16:02:20.488" level="DEBUG">http://localhost:52440 "DELETE /session/a72860db669a141e64224dcfddf67655 HTTP/1.1" 200 14</msg>
-<msg timestamp="20230601 16:02:20.488" level="DEBUG">Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})</msg>
-<msg timestamp="20230601 16:02:20.488" level="DEBUG">Finished Request</msg>
-<status status="PASS" starttime="20230601 16:02:20.331" endtime="20230601 16:02:22.715"/>
+<status status="PASS" starttime="20230707 17:18:20.022" endtime="20230707 17:18:36.318"/>
 </kw>
 <kw name="Stop All Services" library="test_code.Services">
 <doc>Stop all services started. if 'skip_error_check_in_log' set True then log file
 will not be checked for error.</doc>
-<status status="PASS" starttime="20230601 16:02:22.716" endtime="20230601 16:02:22.717"/>
+<status status="PASS" starttime="20230707 17:18:36.322" endtime="20230707 17:18:36.322"/>
 </kw>
-<tag>FMS_Regression</tag>
 <tag>Regression</tag>
 <tag>test</tag>
-<status status="PASS" starttime="20230601 16:02:07.953" endtime="20230601 16:02:20.330"/>
+<status status="PASS" starttime="20230707 17:18:20.022" endtime="20230707 17:18:36.318"/>
 </test>
-<kw name="Close All Browsers" library="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<msg timestamp="20230601 16:02:22.722" level="DEBUG">Closing all browsers.</msg>
-<status status="PASS" starttime="20230601 16:02:22.722" endtime="20230601 16:02:22.722"/>
+<test id="s1-t2" name="TC_002_Verify Audit API Get Status Code">
+<kw name="Validate Audit API Get Status Code">
+<kw name="Get Api Method" library="auditlogapi">
+<var>${result}</var>
+<arg>${AUDIT_GET_URL}</arg>
+<doc>Get API Method</doc>
+<msg timestamp="20230707 17:18:38.339" level="DEBUG">Starting new HTTP connection (1): localhost:5000</msg>
+<msg timestamp="20230707 17:18:38.635" level="DEBUG">http://localhost:5000 "GET /Audit HTTP/1.1" 200 None</msg>
+<msg timestamp="20230707 17:18:43.703" level="INFO">${result} = {'status_code': '200', 'Content': b'{"assets":[{"assetName":"AUT_TEST_ENTITY_1"},{"assetName":"AUT_TEST_ENTITY_1_U"}],"usersList":[{"userName":"AUT_TEST_USER_1"},{"userName":"AUT_TEST_USER_1_U"}],"eve...</msg>
+<status status="PASS" starttime="20230707 17:18:36.337" endtime="20230707 17:18:43.703"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result}[status_code]</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<msg timestamp="20230707 17:18:43.712" level="DEBUG">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20230707 17:18:43.704" endtime="20230707 17:18:43.712"/>
+</kw>
+<status status="PASS" starttime="20230707 17:18:36.337" endtime="20230707 17:18:43.712"/>
 </kw>
 <kw name="Stop All Services" library="test_code.Services">
 <doc>Stop all services started. if 'skip_error_check_in_log' set True then log file
 will not be checked for error.</doc>
-<status status="PASS" starttime="20230601 16:02:22.724" endtime="20230601 16:02:22.726"/>
+<status status="PASS" starttime="20230707 17:18:43.719" endtime="20230707 17:18:43.719"/>
 </kw>
-<doc>test</doc>
-<status status="PASS" starttime="20230601 16:01:52.635" endtime="20230601 16:02:22.722"/>
+<tag>Regression</tag>
+<tag>test</tag>
+<status status="PASS" starttime="20230707 17:18:36.322" endtime="20230707 17:18:43.713"/>
+</test>
+<test id="s1-t3" name="TC_003_Verify Audit API Content With Given Value">
+<kw name="Validate Get API Content With Given Value">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>apisession</arg>
+<arg>${AUDIT_GET_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230707 17:18:43.734" level="INFO">Creating Session using : alias=apisession, url=http://localhost:5000/Audit, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg timestamp="20230707 17:18:43.734" level="DEBUG">Creating session: apisession</msg>
+<status status="PASS" starttime="20230707 17:18:43.734" endtime="20230707 17:18:43.734"/>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>apisession</arg>
+<arg>${AUDIT_GET_URL}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<msg timestamp="20230707 17:18:43.734" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20230707 17:18:43.734" level="DEBUG">Starting new HTTP connection (1): localhost:5000</msg>
+<msg timestamp="20230707 17:18:44.307" level="DEBUG">http://localhost:5000 "GET /Audit HTTP/1.1" 200 None</msg>
+<msg timestamp="20230707 17:18:44.320" level="INFO">GET Request : url=http://localhost:5000/Audit 
+ path_url=/Audit 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230707 17:18:44.320" level="INFO">GET Response : url=http://localhost:5000/Audit 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Date': 'Fri, 07 Jul 2023 11:48:43 GMT', 'Server': 'Kestrel', 'Transfer-Encoding': 'chunked'} 
+ body={"assets":[{"assetName":"AUT_TEST_ENTITY_1"},{"assetName":"AUT_TEST_ENTITY_1_U"}],"usersList":[{"userName":"AUT_TEST_USER_1"},{"userName":"AUT_TEST_USER_1_U"}],"eventOrActivities":[{"eventOrActivityName":"AUT_TEST_EVENT_1"},{"eventOrActivityName":"AUT_TEST_EVENT_1_U"}],"action":[{"actionName":"Archive"},{"actionName":"Delete"},{"actionName":"Insert"},{"actionName":"UnArchive"},{"actionName":"Update"}]} 
+ </msg>
+<msg timestamp="20230707 17:18:44.320" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230707 17:18:43.734" endtime="20230707 17:18:44.320"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230707 17:18:45.325" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230707 17:18:44.320" endtime="20230707 17:18:45.325"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${CONTENT_RESULT}</var>
+<arg>${response.content}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230707 17:18:45.325" level="DEBUG">Argument types are:
+&lt;class 'bytes'&gt;</msg>
+<msg timestamp="20230707 17:18:45.325" level="INFO">${CONTENT_RESULT} = {"assets":[{"assetName":"AUT_TEST_ENTITY_1"},{"assetName":"AUT_TEST_ENTITY_1_U"}],"usersList":[{"userName":"AUT_TEST_USER_1"},{"userName":"AUT_TEST_USER_1_U"}],"eventOrActivities":[{"eventOrActivityNa...</msg>
+<status status="PASS" starttime="20230707 17:18:45.325" endtime="20230707 17:18:45.325"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230707 17:18:47.329" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230707 17:18:45.325" endtime="20230707 17:18:47.329"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${CONTENT_RESULT}</arg>
+<arg>${VALUE}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230707 17:18:47.329" endtime="20230707 17:18:47.329"/>
+</kw>
+<status status="PASS" starttime="20230707 17:18:43.734" endtime="20230707 17:18:47.329"/>
+</kw>
+<kw name="Stop All Services" library="test_code.Services">
+<doc>Stop all services started. if 'skip_error_check_in_log' set True then log file
+will not be checked for error.</doc>
+<status status="PASS" starttime="20230707 17:18:47.329" endtime="20230707 17:18:47.329"/>
+</kw>
+<tag>Regression</tag>
+<tag>test</tag>
+<status status="PASS" starttime="20230707 17:18:43.719" endtime="20230707 17:18:47.329"/>
+</test>
+<test id="s1-t4" name="TC_004_Verify Header Values From Content In Audit API">
+<kw name="Validate Header Values From Get API In Content">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>apisession</arg>
+<arg>${AUDIT_GET_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230707 17:18:47.344" level="INFO">Creating Session using : alias=apisession, url=http://localhost:5000/Audit, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg timestamp="20230707 17:18:47.344" level="DEBUG">Creating session: apisession</msg>
+<status status="PASS" starttime="20230707 17:18:47.344" endtime="20230707 17:18:47.344"/>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>apisession</arg>
+<arg>${AUDIT_GET_URL}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<msg timestamp="20230707 17:18:47.344" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20230707 17:18:47.344" level="DEBUG">Starting new HTTP connection (1): localhost:5000</msg>
+<msg timestamp="20230707 17:18:48.175" level="DEBUG">http://localhost:5000 "GET /Audit HTTP/1.1" 200 None</msg>
+<msg timestamp="20230707 17:18:48.210" level="INFO">GET Request : url=http://localhost:5000/Audit 
+ path_url=/Audit 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230707 17:18:48.210" level="INFO">GET Response : url=http://localhost:5000/Audit 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Date': 'Fri, 07 Jul 2023 11:48:47 GMT', 'Server': 'Kestrel', 'Transfer-Encoding': 'chunked'} 
+ body={"assets":[{"assetName":"AUT_TEST_ENTITY_1"},{"assetName":"AUT_TEST_ENTITY_1_U"}],"usersList":[{"userName":"AUT_TEST_USER_1"},{"userName":"AUT_TEST_USER_1_U"}],"eventOrActivities":[{"eventOrActivityName":"AUT_TEST_EVENT_1"},{"eventOrActivityName":"AUT_TEST_EVENT_1_U"}],"action":[{"actionName":"Archive"},{"actionName":"Delete"},{"actionName":"Insert"},{"actionName":"UnArchive"},{"actionName":"Update"}]} 
+ </msg>
+<msg timestamp="20230707 17:18:48.210" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230707 17:18:47.344" endtime="20230707 17:18:48.210"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${content_type_value}</var>
+<arg>${response.headers}</arg>
+<arg>${CONTENT_KEY}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20230707 17:18:48.212" level="INFO">${content_type_value} = Kestrel</msg>
+<status status="PASS" starttime="20230707 17:18:48.211" endtime="20230707 17:18:48.212"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${content_type_value}</arg>
+<arg>${CONTENT_VALUE}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<msg timestamp="20230707 17:18:48.212" level="DEBUG">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20230707 17:18:48.212" endtime="20230707 17:18:48.212"/>
+</kw>
+<status status="PASS" starttime="20230707 17:18:47.344" endtime="20230707 17:18:48.212"/>
+</kw>
+<kw name="Stop All Services" library="test_code.Services">
+<doc>Stop all services started. if 'skip_error_check_in_log' set True then log file
+will not be checked for error.</doc>
+<status status="PASS" starttime="20230707 17:18:48.216" endtime="20230707 17:18:48.216"/>
+</kw>
+<tag>Regression</tag>
+<tag>test</tag>
+<status status="PASS" starttime="20230707 17:18:47.329" endtime="20230707 17:18:48.216"/>
+</test>
+<test id="s1-t5" name="TC_005_Verify Create Audit API In Update Patch Method">
+<kw name="Execute Update Audit Patch Method">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${RequestBody_U}</var>
+<arg>assignment_Event=${assignment_Event_u}</arg>
+<arg>material= ${material_u}</arg>
+<arg>eventName=${eventName_u}</arg>
+<arg>source=${source_u}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230707 17:18:48.247" level="INFO">${RequestBody_U} = {'assignment_Event': 'AUT_TEST_Assignment_Event_U', 'material': ' AUT_TEST_Material_U', 'eventName': 'AUT_TEST_EventName_U', 'source': 'AUT_TEST_Source_U'}</msg>
+<status status="PASS" starttime="20230707 17:18:48.246" endtime="20230707 17:18:48.247"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${BODY}</var>
+<arg>objectid=${OBJECT_ID}</arg>
+<arg>changedByType=${changedByType_u}</arg>
+<arg>object=${object_u}</arg>
+<arg>entity=${api_entity_u}</arg>
+<arg>changedByID=${changedByID_u}</arg>
+<arg>requestBody=${RequestBody_U}</arg>
+<arg>requestURL=${requestURL_u}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230707 17:18:48.247" level="INFO">${BODY} = {'objectid': '9BD037FC-8EC3-4EEB-9C99-5F8001049EED', 'changedByType': 'AUT_TEST_CI_1_U', 'object': 'AUT_TEST_EVENT_1_U', 'entity': 'AUT_TEST_ENTITY_1_U', 'changedByID': 'AUT_TEST_USER_1_U', 'requestBo...</msg>
+<status status="PASS" starttime="20230707 17:18:48.247" endtime="20230707 17:18:48.247"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230707 17:18:51.252" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230707 17:18:48.247" endtime="20230707 17:18:51.252"/>
+</kw>
+<kw name="Dumps" library="json">
+<var>${req_json}</var>
+<arg>${BODY}</arg>
+<doc>Serialize ``obj`` to a JSON formatted ``str``.</doc>
+<msg timestamp="20230707 17:18:51.252" level="INFO">${req_json} = {"objectid": "9BD037FC-8EC3-4EEB-9C99-5F8001049EED", "changedByType": "AUT_TEST_CI_1_U", "object": "AUT_TEST_EVENT_1_U", "entity": "AUT_TEST_ENTITY_1_U", "changedByID": "AUT_TEST_USER_1_U", "requestBo...</msg>
+<status status="PASS" starttime="20230707 17:18:51.252" endtime="20230707 17:18:51.252"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230707 17:18:54.260" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230707 17:18:51.252" endtime="20230707 17:18:54.261"/>
+</kw>
+<kw name="Patch Api Method" library="auditlogapi">
+<var>${result}</var>
+<arg>${UPDATE_AUDIT_POST_URL}</arg>
+<arg>${req_json}</arg>
+<doc>Patch API Method</doc>
+<msg timestamp="20230707 17:18:56.276" level="DEBUG">Starting new HTTP connection (1): localhost:5000</msg>
+<msg timestamp="20230707 17:18:56.572" level="DEBUG">http://localhost:5000 "PATCH /CreateAudit/update HTTP/1.1" 200 None</msg>
+<msg timestamp="20230707 17:19:01.590" level="INFO">${result} = {'status_code': '200', 'Content': b'{"objectId":"9bd037fc-8ec3-4eeb-9c99-5f8001049eed","object":"AUT_TEST_EVENT_1_U","entity":"AUT_TEST_ENTITY_1_U","changedByID":"AUT_TEST_USER_1_U","changedByType":"A...</msg>
+<status status="PASS" starttime="20230707 17:18:54.261" endtime="20230707 17:19:01.590"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230707 17:19:04.592" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230707 17:19:01.590" endtime="20230707 17:19:04.592"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result}[status_code]</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<msg timestamp="20230707 17:19:04.592" level="DEBUG">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20230707 17:19:04.592" endtime="20230707 17:19:04.592"/>
+</kw>
+<status status="PASS" starttime="20230707 17:18:48.244" endtime="20230707 17:19:04.592"/>
+</kw>
+<kw name="Stop All Services" library="test_code.Services">
+<doc>Stop all services started. if 'skip_error_check_in_log' set True then log file
+will not be checked for error.</doc>
+<status status="PASS" starttime="20230707 17:19:04.592" endtime="20230707 17:19:04.592"/>
+</kw>
+<tag>Regression</tag>
+<tag>test</tag>
+<status status="PASS" starttime="20230707 17:18:48.227" endtime="20230707 17:19:04.592"/>
+</test>
+<test id="s1-t6" name="TC_006_Verify Create Audit API In Delte Method">
+<kw name="Execute Delete Audit Del Method">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${RequestBody}</var>
+<arg>assignment_Event=${assignment_Event}</arg>
+<arg>material= ${material}</arg>
+<arg>eventName=${eventName}</arg>
+<arg>source=${source}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230707 17:19:04.607" level="INFO">${RequestBody} = {'assignment_Event': 'AUT_TEST_Assignment_Event', 'material': ' AUT_TEST_Material', 'eventName': 'AUT_TEST_EventName', 'source': 'AUT_TEST_Source'}</msg>
+<status status="PASS" starttime="20230707 17:19:04.607" endtime="20230707 17:19:04.607"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${BODY}</var>
+<arg>objectid=${OBJECT_ID}</arg>
+<arg>changedByType=${changedByType}</arg>
+<arg>object=${object}</arg>
+<arg>entity=${api_entity}</arg>
+<arg>changedByID=${changedByID}</arg>
+<arg>requestBody=${RequestBody}</arg>
+<arg>requestURL=${requestURL}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230707 17:19:04.607" level="INFO">${BODY} = {'objectid': '9BD037FC-8EC3-4EEB-9C99-5F8001049EED', 'changedByType': 'AUT_TEST_CI_1', 'object': 'AUT_TEST_EVENT_1', 'entity': 'AUT_TEST_ENTITY_1', 'changedByID': 'AUT_TEST_USER_1', 'requestBody': {'a...</msg>
+<status status="PASS" starttime="20230707 17:19:04.607" endtime="20230707 17:19:04.607"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230707 17:19:09.607" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230707 17:19:04.607" endtime="20230707 17:19:09.607"/>
+</kw>
+<kw name="Dumps" library="json">
+<var>${req_json}</var>
+<arg>${BODY}</arg>
+<doc>Serialize ``obj`` to a JSON formatted ``str``.</doc>
+<msg timestamp="20230707 17:19:09.607" level="INFO">${req_json} = {"objectid": "9BD037FC-8EC3-4EEB-9C99-5F8001049EED", "changedByType": "AUT_TEST_CI_1", "object": "AUT_TEST_EVENT_1", "entity": "AUT_TEST_ENTITY_1", "changedByID": "AUT_TEST_USER_1", "requestBody": {"a...</msg>
+<status status="PASS" starttime="20230707 17:19:09.607" endtime="20230707 17:19:09.607"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230707 17:19:14.611" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230707 17:19:09.607" endtime="20230707 17:19:14.612"/>
+</kw>
+<kw name="Delete Api Method" library="auditlogapi">
+<var>${result}</var>
+<arg>${DELETE_AUDIT_URL}</arg>
+<arg>data=${req_json}</arg>
+<doc>Delete API Method</doc>
+<msg timestamp="20230707 17:19:24.630" level="DEBUG">Starting new HTTP connection (1): localhost:5000</msg>
+<msg timestamp="20230707 17:19:24.925" level="DEBUG">http://localhost:5000 "DELETE /CreateAudit/delete HTTP/1.1" 200 None</msg>
+<msg timestamp="20230707 17:19:34.966" level="INFO">${result} = {'status_code': '200', 'Content': b'{"objectId":"9bd037fc-8ec3-4eeb-9c99-5f8001049eed","object":"AUT_TEST_EVENT_1","entity":"AUT_TEST_ENTITY_1","changedByID":"AUT_TEST_USER_1","changedByType":"AUT_TES...</msg>
+<status status="PASS" starttime="20230707 17:19:14.612" endtime="20230707 17:19:34.966"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230707 17:19:39.974" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230707 17:19:34.966" endtime="20230707 17:19:39.974"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result}[status_code]</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<msg timestamp="20230707 17:19:39.974" level="DEBUG">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20230707 17:19:39.974" endtime="20230707 17:19:39.974"/>
+</kw>
+<status status="PASS" starttime="20230707 17:19:04.607" endtime="20230707 17:19:39.974"/>
+</kw>
+<kw name="Stop All Services" library="test_code.Services">
+<doc>Stop all services started. if 'skip_error_check_in_log' set True then log file
+will not be checked for error.</doc>
+<status status="PASS" starttime="20230707 17:19:39.982" endtime="20230707 17:19:39.982"/>
+</kw>
+<tag>Regression</tag>
+<tag>test</tag>
+<status status="PASS" starttime="20230707 17:19:04.592" endtime="20230707 17:19:39.974"/>
+</test>
+<test id="s1-t7" name="TC_007_Verify Create Audit API In Archive Patch Method">
+<kw name="Execute Create Audit Archive Patch API Method">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${RequestBody}</var>
+<arg>assignment_Event=${assignment_Event}</arg>
+<arg>material= ${material}</arg>
+<arg>eventName=${eventName}</arg>
+<arg>source=${source}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230707 17:19:40.004" level="INFO">${RequestBody} = {'assignment_Event': 'AUT_TEST_Assignment_Event', 'material': ' AUT_TEST_Material', 'eventName': 'AUT_TEST_EventName', 'source': 'AUT_TEST_Source'}</msg>
+<status status="PASS" starttime="20230707 17:19:40.004" endtime="20230707 17:19:40.004"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${BODY}</var>
+<arg>objectid=${OBJECT_ID}</arg>
+<arg>changedByType=${changedByType}</arg>
+<arg>object=${object}</arg>
+<arg>entity=${api_entity}</arg>
+<arg>changedByID=${changedByID}</arg>
+<arg>requestBody=${RequestBody}</arg>
+<arg>requestURL=${requestURL}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230707 17:19:40.004" level="INFO">${BODY} = {'objectid': '9BD037FC-8EC3-4EEB-9C99-5F8001049EED', 'changedByType': 'AUT_TEST_CI_1', 'object': 'AUT_TEST_EVENT_1', 'entity': 'AUT_TEST_ENTITY_1', 'changedByID': 'AUT_TEST_USER_1', 'requestBody': {'a...</msg>
+<status status="PASS" starttime="20230707 17:19:40.004" endtime="20230707 17:19:40.004"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230707 17:19:43.012" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230707 17:19:40.004" endtime="20230707 17:19:43.012"/>
+</kw>
+<kw name="Dumps" library="json">
+<var>${req_json}</var>
+<arg>${BODY}</arg>
+<doc>Serialize ``obj`` to a JSON formatted ``str``.</doc>
+<msg timestamp="20230707 17:19:43.012" level="INFO">${req_json} = {"objectid": "9BD037FC-8EC3-4EEB-9C99-5F8001049EED", "changedByType": "AUT_TEST_CI_1", "object": "AUT_TEST_EVENT_1", "entity": "AUT_TEST_ENTITY_1", "changedByID": "AUT_TEST_USER_1", "requestBody": {"a...</msg>
+<status status="PASS" starttime="20230707 17:19:43.012" endtime="20230707 17:19:43.012"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230707 17:19:46.034" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230707 17:19:43.012" endtime="20230707 17:19:46.034"/>
+</kw>
+<kw name="Patch Api Method" library="auditlogapi">
+<var>${result}</var>
+<arg>${ARCHIVE_AUDIT_URL}</arg>
+<arg>${req_json}</arg>
+<doc>Patch API Method</doc>
+<msg timestamp="20230707 17:19:48.040" level="DEBUG">Starting new HTTP connection (1): localhost:5000</msg>
+<msg timestamp="20230707 17:19:48.310" level="DEBUG">http://localhost:5000 "PATCH /CreateAudit/Archive HTTP/1.1" 200 None</msg>
+<msg timestamp="20230707 17:19:53.313" level="INFO">${result} = {'status_code': '200', 'Content': b'{"objectId":"9bd037fc-8ec3-4eeb-9c99-5f8001049eed","object":"AUT_TEST_EVENT_1","entity":"AUT_TEST_ENTITY_1","changedByID":"AUT_TEST_USER_1","changedByType":"AUT_TES...</msg>
+<status status="PASS" starttime="20230707 17:19:46.034" endtime="20230707 17:19:53.313"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230707 17:19:56.331" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230707 17:19:53.313" endtime="20230707 17:19:56.331"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result}[status_code]</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<msg timestamp="20230707 17:19:56.333" level="DEBUG">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20230707 17:19:56.331" endtime="20230707 17:19:56.333"/>
+</kw>
+<status status="PASS" starttime="20230707 17:19:40.004" endtime="20230707 17:19:56.333"/>
+</kw>
+<kw name="Stop All Services" library="test_code.Services">
+<doc>Stop all services started. if 'skip_error_check_in_log' set True then log file
+will not be checked for error.</doc>
+<status status="PASS" starttime="20230707 17:19:56.333" endtime="20230707 17:19:56.333"/>
+</kw>
+<tag>Regression</tag>
+<tag>test</tag>
+<status status="PASS" starttime="20230707 17:19:39.982" endtime="20230707 17:19:56.333"/>
+</test>
+<test id="s1-t8" name="TC_008_Verify Create Audit API In UnArchive Patch Method">
+<kw name="Execute Create Audit UnArchive Patch API Method">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${RequestBody}</var>
+<arg>assignment_Event=${assignment_Event}</arg>
+<arg>material= ${material}</arg>
+<arg>eventName=${eventName}</arg>
+<arg>source=${source}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230707 17:19:56.348" level="INFO">${RequestBody} = {'assignment_Event': 'AUT_TEST_Assignment_Event', 'material': ' AUT_TEST_Material', 'eventName': 'AUT_TEST_EventName', 'source': 'AUT_TEST_Source'}</msg>
+<status status="PASS" starttime="20230707 17:19:56.348" endtime="20230707 17:19:56.348"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${BODY}</var>
+<arg>objectid=${OBJECT_ID}</arg>
+<arg>changedByType=${changedByType}</arg>
+<arg>object=${object}</arg>
+<arg>entity=${api_entity}</arg>
+<arg>changedByID=${changedByID}</arg>
+<arg>requestBody=${RequestBody}</arg>
+<arg>requestURL=${requestURL}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230707 17:19:56.348" level="INFO">${BODY} = {'objectid': '9BD037FC-8EC3-4EEB-9C99-5F8001049EED', 'changedByType': 'AUT_TEST_CI_1', 'object': 'AUT_TEST_EVENT_1', 'entity': 'AUT_TEST_ENTITY_1', 'changedByID': 'AUT_TEST_USER_1', 'requestBody': {'a...</msg>
+<status status="PASS" starttime="20230707 17:19:56.348" endtime="20230707 17:19:56.348"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230707 17:20:01.349" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230707 17:19:56.348" endtime="20230707 17:20:01.349"/>
+</kw>
+<kw name="Dumps" library="json">
+<var>${req_json}</var>
+<arg>${BODY}</arg>
+<doc>Serialize ``obj`` to a JSON formatted ``str``.</doc>
+<msg timestamp="20230707 17:20:01.349" level="INFO">${req_json} = {"objectid": "9BD037FC-8EC3-4EEB-9C99-5F8001049EED", "changedByType": "AUT_TEST_CI_1", "object": "AUT_TEST_EVENT_1", "entity": "AUT_TEST_ENTITY_1", "changedByID": "AUT_TEST_USER_1", "requestBody": {"a...</msg>
+<status status="PASS" starttime="20230707 17:20:01.349" endtime="20230707 17:20:01.349"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230707 17:20:06.366" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230707 17:20:01.349" endtime="20230707 17:20:06.366"/>
+</kw>
+<kw name="Patch Api Method" library="auditlogapi">
+<var>${result}</var>
+<arg>${UNARCHIVE_AUDIT_URL}</arg>
+<arg>${req_json}</arg>
+<doc>Patch API Method</doc>
+<msg timestamp="20230707 17:20:08.375" level="DEBUG">Starting new HTTP connection (1): localhost:5000</msg>
+<msg timestamp="20230707 17:20:08.632" level="DEBUG">http://localhost:5000 "PATCH /CreateAudit/UnArchive HTTP/1.1" 200 None</msg>
+<msg timestamp="20230707 17:20:13.649" level="INFO">${result} = {'status_code': '200', 'Content': b'{"objectId":"9bd037fc-8ec3-4eeb-9c99-5f8001049eed","object":"AUT_TEST_EVENT_1","entity":"AUT_TEST_ENTITY_1","changedByID":"AUT_TEST_USER_1","changedByType":"AUT_TES...</msg>
+<status status="PASS" starttime="20230707 17:20:06.366" endtime="20230707 17:20:13.649"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230707 17:20:18.661" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230707 17:20:13.649" endtime="20230707 17:20:18.661"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result}[status_code]</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<msg timestamp="20230707 17:20:18.661" level="DEBUG">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20230707 17:20:18.661" endtime="20230707 17:20:18.661"/>
+</kw>
+<status status="PASS" starttime="20230707 17:19:56.348" endtime="20230707 17:20:18.661"/>
+</kw>
+<kw name="Stop All Services" library="test_code.Services">
+<doc>Stop all services started. if 'skip_error_check_in_log' set True then log file
+will not be checked for error.</doc>
+<status status="PASS" starttime="20230707 17:20:18.661" endtime="20230707 17:20:18.661"/>
+</kw>
+<tag>Regression</tag>
+<tag>test</tag>
+<status status="PASS" starttime="20230707 17:19:56.333" endtime="20230707 17:20:18.661"/>
+</test>
+<test id="s1-t9" name="TC_009_Verify AuditRecordDetails API In Post Method">
+<kw name="Execute AuditRecordDetails Post Method">
+<kw name="Audit Record Post Api Method" library="auditlogapi">
+<var>${result}</var>
+<arg>${AUDIT_RECORD_DETAILS_URL}</arg>
+<doc>Audit Record Post API Method</doc>
+<msg timestamp="20230707 17:20:20.703" level="DEBUG">Starting new HTTP connection (1): localhost:5000</msg>
+<msg timestamp="20230707 17:20:21.259" level="DEBUG">http://localhost:5000 "POST /AuditRecordDetails HTTP/1.1" 200 None</msg>
+<msg timestamp="20230707 17:20:26.279" level="INFO">&lt;Response [200]&gt;</msg>
+<msg timestamp="20230707 17:20:26.279" level="INFO">${result} = {'status_code': '200', 'Content': b'[]'}</msg>
+<status status="PASS" starttime="20230707 17:20:18.694" endtime="20230707 17:20:26.279"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230707 17:20:29.288" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230707 17:20:26.281" endtime="20230707 17:20:29.288"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result}[status_code]</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<msg timestamp="20230707 17:20:29.288" level="DEBUG">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20230707 17:20:29.288" endtime="20230707 17:20:29.288"/>
+</kw>
+<status status="PASS" starttime="20230707 17:20:18.691" endtime="20230707 17:20:29.288"/>
+</kw>
+<kw name="Stop All Services" library="test_code.Services">
+<doc>Stop all services started. if 'skip_error_check_in_log' set True then log file
+will not be checked for error.</doc>
+<status status="PASS" starttime="20230707 17:20:29.288" endtime="20230707 17:20:29.288"/>
+</kw>
+<tag>Regression</tag>
+<tag>test</tag>
+<status status="PASS" starttime="20230707 17:20:18.676" endtime="20230707 17:20:29.288"/>
+</test>
+<test id="s1-t10" name="TC_010_Verify AuditRecordDetails API Get Status Code">
+<kw name="Validate Given Audit Record Details Url Api Get Status Code">
+<kw name="Audit Record Get Api Method" library="auditlogapi">
+<var>${result}</var>
+<arg>${AUDIT_RECORD_DETAILS_GET_URL}</arg>
+<doc>Audit Record Get API Method</doc>
+<msg timestamp="20230707 17:20:34.315" level="DEBUG">Starting new HTTP connection (1): localhost:5000</msg>
+<msg timestamp="20230707 17:20:35.179" level="DEBUG">http://localhost:5000 "GET /AuditRecordDetails?UtcStartDateTime=2023-06-27T07:20:54.372Z&amp;UtcEndDateTime=2023-06-27T07:20:54.372Z&amp;AuditRecordID=%5B'stringtest'%5D&amp;Actions=%5B'stringtest'%5D&amp;Users=%5B'stringtest'%5D&amp;Assets=%5B'stringtest'%5D&amp;Entity=AUT_TEST_ENTITY_1&amp;IsExportToExcel=true&amp;SortColumn=string&amp;SortOrder=string&amp;PageNumber=0&amp;PageSize=0&amp;%7B%22pageNumber%22:%200,%20%22pageSize%22:%200,%20%22utcStartDateTime%22:%20%222023-06-28T07:51:35.369Z%22,%20%22utcEndDateTime%22:%20%222023-06-28T07:51:35.369Z%22,%20%22auditRecordID%22:%20%5B%22string%22%5D,%20%22actions%22:%20%5B%22string%22%5D,%20%22users%22:%20%5B%22string%22%5D,%20%22assets%22:%20%5B%22string%22%5D,%20%22entity%22:%20%5B%22string%22%5D,%20%22isExportToExcel%22:%20true,%20%22sortColumn%22:%20%22string%22,%20%22sortOrder%22:%20%22string%22%7D HTTP/1.1" 200 None</msg>
+<msg timestamp="20230707 17:20:43.219" level="INFO">&lt;Response [200]&gt;</msg>
+<msg timestamp="20230707 17:20:43.219" level="INFO">${result} = {'status_code': '200', 'Content': b'[]'}</msg>
+<status status="PASS" starttime="20230707 17:20:29.303" endtime="20230707 17:20:43.219"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result}[status_code]</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<msg timestamp="20230707 17:20:43.219" level="DEBUG">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20230707 17:20:43.219" endtime="20230707 17:20:43.219"/>
+</kw>
+<status status="PASS" starttime="20230707 17:20:29.303" endtime="20230707 17:20:43.219"/>
+</kw>
+<kw name="Stop All Services" library="test_code.Services">
+<doc>Stop all services started. if 'skip_error_check_in_log' set True then log file
+will not be checked for error.</doc>
+<status status="PASS" starttime="20230707 17:20:43.219" endtime="20230707 17:20:43.219"/>
+</kw>
+<tag>Regression</tag>
+<tag>test</tag>
+<status status="PASS" starttime="20230707 17:20:29.288" endtime="20230707 17:20:43.219"/>
+</test>
+<test id="s1-t11" name="TC_011_Verify ExceptionLogger API Post Method">
+<kw name="Execute ExceptionLogger Audit Post Method">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${BODY}</var>
+<arg>objectid=${OBJECT_ID}</arg>
+<arg>dateTimeUTC=${dateTimeUTC}</arg>
+<arg>userName=${userName}</arg>
+<arg>exceptionChannel=${exceptionChannel}</arg>
+<arg>exceptionDetails=${exceptionDetails}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230707 17:20:43.234" level="INFO">${BODY} = {'objectid': '9BD037FC-8EC3-4EEB-9C99-5F8001049EED', 'dateTimeUTC': '2023-06-30T05:21:32.203Z', 'userName': 'AUT_TEST_XXXXX', 'exceptionChannel': 'AUT_TEST_EXPCHANNEL_THIS IS AUTOMATION INJECT EXCEPTI...</msg>
+<status status="PASS" starttime="20230707 17:20:43.234" endtime="20230707 17:20:43.234"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230707 17:20:48.264" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230707 17:20:43.234" endtime="20230707 17:20:48.264"/>
+</kw>
+<kw name="Dumps" library="json">
+<var>${req_json}</var>
+<arg>${BODY}</arg>
+<doc>Serialize ``obj`` to a JSON formatted ``str``.</doc>
+<msg timestamp="20230707 17:20:48.264" level="INFO">${req_json} = {"objectid": "9BD037FC-8EC3-4EEB-9C99-5F8001049EED", "dateTimeUTC": "2023-06-30T05:21:32.203Z", "userName": "AUT_TEST_XXXXX", "exceptionChannel": "AUT_TEST_EXPCHANNEL_THIS IS AUTOMATION INJECT EXCEPTI...</msg>
+<status status="PASS" starttime="20230707 17:20:48.264" endtime="20230707 17:20:48.264"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230707 17:20:53.269" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230707 17:20:48.264" endtime="20230707 17:20:53.270"/>
+</kw>
+<kw name="Post Api Method" library="auditlogapi">
+<var>${result}</var>
+<arg>${EXCEPTION_LOGGER_AUDIT_URL}</arg>
+<arg>${req_json}</arg>
+<doc>Post API Method</doc>
+<msg timestamp="20230707 17:20:55.276" level="DEBUG">Starting new HTTP connection (1): localhost:5000</msg>
+<msg timestamp="20230707 17:20:55.879" level="DEBUG">http://localhost:5000 "POST /ExceptionLogger HTTP/1.1" 200 None</msg>
+<msg timestamp="20230707 17:21:00.916" level="INFO">${result} = {'status_code': '200', 'Content': b'{"id":"1d156666-1ad8-4731-b6bc-9bc78d70e491","userName":"AUT_TEST_XXXXX","dateTimeUTC":"2023-06-30T05:21:32.203Z","exceptionChannel":"Front End","exceptionDetails":...</msg>
+<status status="PASS" starttime="20230707 17:20:53.270" endtime="20230707 17:21:00.916"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230707 17:21:05.919" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230707 17:21:00.916" endtime="20230707 17:21:05.920"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result}[status_code]</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<msg timestamp="20230707 17:21:05.923" level="DEBUG">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20230707 17:21:05.921" endtime="20230707 17:21:05.923"/>
+</kw>
+<status status="PASS" starttime="20230707 17:20:43.234" endtime="20230707 17:21:05.923"/>
+</kw>
+<kw name="Stop All Services" library="test_code.Services">
+<doc>Stop all services started. if 'skip_error_check_in_log' set True then log file
+will not be checked for error.</doc>
+<status status="PASS" starttime="20230707 17:21:05.932" endtime="20230707 17:21:05.932"/>
+</kw>
+<tag>Regression</tag>
+<tag>test</tag>
+<status status="PASS" starttime="20230707 17:20:43.219" endtime="20230707 17:21:05.924"/>
+</test>
+<test id="s1-t12" name="TC_012_Verify UserActivityDetails API Get Method">
+<kw name="Validate Given User Activity Details Api Get Status Code">
+<kw name="Audit Record Get Api Method" library="auditlogapi">
+<var>${result}</var>
+<arg>${USER_ACTIVITY_DETAILS_GET_URL}</arg>
+<doc>Audit Record Get API Method</doc>
+<msg timestamp="20230707 17:21:10.979" level="DEBUG">Starting new HTTP connection (1): localhost:5000</msg>
+<msg timestamp="20230707 17:21:11.244" level="DEBUG">http://localhost:5000 "GET /UserActivityDetails?userActivitySearchCriteria=2023-04-30T04%3A47%3A06.476Z&amp;%7B%22pageNumber%22:%200,%20%22pageSize%22:%200,%20%22utcStartDateTime%22:%20%222023-06-28T07:51:35.369Z%22,%20%22utcEndDateTime%22:%20%222023-06-28T07:51:35.369Z%22,%20%22auditRecordID%22:%20%5B%22string%22%5D,%20%22actions%22:%20%5B%22string%22%5D,%20%22users%22:%20%5B%22string%22%5D,%20%22assets%22:%20%5B%22string%22%5D,%20%22entity%22:%20%5B%22string%22%5D,%20%22isExportToExcel%22:%20true,%20%22sortColumn%22:%20%22string%22,%20%22sortOrder%22:%20%22string%22%7D HTTP/1.1" 200 None</msg>
+<msg timestamp="20230707 17:21:19.255" level="INFO">&lt;Response [200]&gt;</msg>
+<msg timestamp="20230707 17:21:19.255" level="INFO">${result} = {'status_code': '200', 'Content': b'[]'}</msg>
+<status status="PASS" starttime="20230707 17:21:05.972" endtime="20230707 17:21:19.255"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result}[status_code]</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<msg timestamp="20230707 17:21:19.255" level="DEBUG">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20230707 17:21:19.255" endtime="20230707 17:21:19.255"/>
+</kw>
+<status status="PASS" starttime="20230707 17:21:05.964" endtime="20230707 17:21:19.255"/>
+</kw>
+<kw name="Stop All Services" library="test_code.Services">
+<doc>Stop all services started. if 'skip_error_check_in_log' set True then log file
+will not be checked for error.</doc>
+<status status="PASS" starttime="20230707 17:21:19.255" endtime="20230707 17:21:19.255"/>
+</kw>
+<tag>Regression</tag>
+<tag>test</tag>
+<status status="PASS" starttime="20230707 17:21:05.944" endtime="20230707 17:21:19.255"/>
+</test>
+<test id="s1-t13" name="TC_013_Verify UserDetails API Get Method">
+<kw name="Validate Get Status Code For User Details With Headers Api">
+<kw name="Get Api Method With User Details Headers" library="auditlogapi">
+<var>${result}</var>
+<arg>${USER_DETAILS_GET_URL}</arg>
+<doc>Get API Method With User Details Headers</doc>
+<msg timestamp="20230707 17:21:21.280" level="DEBUG">Starting new HTTP connection (1): localhost:5000</msg>
+<msg timestamp="20230707 17:21:21.776" level="DEBUG">http://localhost:5000 "GET /UserDetails HTTP/1.1" 200 None</msg>
+<msg timestamp="20230707 17:21:26.836" level="INFO">${result} = {'status_code': '200', 'Content': b'{"userID":"000001","userName":"AUT.TEST-XX","emailAddress":"AUT_TEST@fmgl.com.au","firstName":"AUT_TEST_FN","lastName":"AUT_TEST_LN","lastActiveOn":"0001-01-01T00:0...</msg>
+<status status="PASS" starttime="20230707 17:21:19.270" endtime="20230707 17:21:26.836"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result}[status_code]</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<msg timestamp="20230707 17:21:26.836" level="DEBUG">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20230707 17:21:26.836" endtime="20230707 17:21:26.836"/>
+</kw>
+<status status="PASS" starttime="20230707 17:21:19.270" endtime="20230707 17:21:26.836"/>
+</kw>
+<kw name="Stop All Services" library="test_code.Services">
+<doc>Stop all services started. if 'skip_error_check_in_log' set True then log file
+will not be checked for error.</doc>
+<status status="PASS" starttime="20230707 17:21:26.836" endtime="20230707 17:21:26.836"/>
+</kw>
+<tag>Regression</tag>
+<tag>test</tag>
+<status status="PASS" starttime="20230707 17:21:19.255" endtime="20230707 17:21:26.836"/>
+</test>
+<kw name="Stop All Services" library="test_code.Services">
+<doc>Stop all services started. if 'skip_error_check_in_log' set True then log file
+will not be checked for error.</doc>
+<status status="PASS" starttime="20230707 17:21:26.851" endtime="20230707 17:21:26.851"/>
+</kw>
+<status status="PASS" starttime="20230707 17:18:16.627" endtime="20230707 17:21:26.836"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0" skip="0">All Tests</stat>
+<stat pass="13" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="2" fail="0" skip="0">FMS_Regression</stat>
-<stat pass="2" fail="0" skip="0">Regression</stat>
-<stat pass="2" fail="0" skip="0">test</stat>
+<stat pass="13" fail="0" skip="0">Regression</stat>
+<stat pass="13" fail="0" skip="0">test</stat>
 </tag>
 <suite>
-<stat pass="2" fail="0" skip="0" id="s1" name="Tc audit log">Tc audit log</stat>
+<stat pass="13" fail="0" skip="0" id="s1" name="TC auditlog apitest">TC auditlog apitest</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20230601 16:01:52.908" level="ERROR">Error in file 'C:\FMGApps\FMS_Audit_Log_Automation\tests\audit_log\Tc_audit_log.robot' on line 4: Library 'test_code.auditlog.AuditQuerySearch' expected 0 arguments, got 2.</msg>
+<msg timestamp="20230707 17:18:43.734" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20230707 17:18:47.344" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
 </errors>
 </robot>

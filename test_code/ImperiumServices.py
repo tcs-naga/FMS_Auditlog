@@ -437,7 +437,9 @@ class ImperiumServices(metaclass=Singleton):
     def server_host_ip(self, force_ip=False):
         # If https, then we need atf.apps.fms-dev.local
         if self.https and not force_ip:
-            return 'atf.apps.fms-dev.local'
+            # Un-commented for testing
+            #return 'atf.apps.fms-dev.local'
+            return '127.0.0.1'
 
         if not self._imperium_server_ip_address:
             s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -480,7 +482,8 @@ class ImperiumServices(metaclass=Singleton):
 
     def sql(self, database: str=None):
         host = self.imperium_server_ip_address
-        password = 'SupaDupaSecret!!!!'
+        #password = 'SupaDupaSecret!!!!'
+        password = 'master@5'
         if 'sql' not in self.docker_services_port:
             self.docker_services_port['sql'] = self.service_port(1433)
         return {
@@ -497,7 +500,10 @@ class ImperiumServices(metaclass=Singleton):
         """
         # Local deployed environment url.
         if self.run_env == 'local' and not websocket and not self.https:
+            #added localhost
+            #return f"http://127.0.0.1:{self.service_ports[service]}"
             return f"http://{self.imperium_server_ip_address}:{self.service_ports[service]}"
+
         # Local deployed environment websocket url.
         elif self.run_env == 'local' and websocket and not self.https:
             return f"ws://{self.imperium_server_ip_address}:{self.service_ports[service]}"
