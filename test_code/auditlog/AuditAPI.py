@@ -1,8 +1,12 @@
 from time import sleep
 import requests
+
 import json
 
-class AuditAPI:
+from test_code.services.BaseClient import BaseClient
+
+
+class AuditAPI(BaseClient):
     headers={'content-type': 'application/json'}
 
     user_details_headers = {
@@ -40,7 +44,6 @@ class AuditAPI:
     }
     jsonData = json.dumps(audit_record_details)
 
-
     def get_api_method(self,url):
         """
         Get API Method
@@ -51,10 +54,23 @@ class AuditAPI:
         results = {}
         sleep(2)
         response = requests.get(url,headers=self.headers)
+
         sleep(5)
+        print(response)
         results['status_code'] = self.get_status_code_from_response(response, '[', ']')
         results['Content'] = response.content
         return results
+
+    def test_get_api(self):
+        """
+         Test Get Api
+
+         Examples:
+         | Test Get Api|
+        """
+        response= self.get('/Audit','API')
+        print(response)
+
 
     def get_api_method_with_user_details_headers(self, url,):
         """
@@ -161,5 +177,3 @@ class AuditAPI:
           | Convert To Json |
         """
         return   json.loads(data)
-
-

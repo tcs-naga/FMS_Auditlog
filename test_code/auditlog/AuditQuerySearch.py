@@ -38,10 +38,6 @@ class AuditQuerySearch(Basepage):
     time_mm = "// div[@class ='MuiPickersClock-clock']/span[text()='00']"
     ok_btn = "// span[text()='OK']"
 
-    # event_type_chip_text = '//th[3]/div/descendant::div[3]/child::div[1]/span'
-    # action_chip_text = '//th[4]/div/descendant::div[3]/child::div[1]/span'
-    # entity_chip_text = '//th[5]/div/descendant::div[3]/child::div[1]/span'
-    # user_chip_text = '//th[6]/div/descendant::div[3]/child::div[1]/span'
 
     ##Not in use
     today = datelibarary.today()
