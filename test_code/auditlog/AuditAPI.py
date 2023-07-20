@@ -6,7 +6,7 @@ import json
 from test_code.services.BaseClient import BaseClient
 
 
-class AuditAPI(BaseClient):
+class AuditAPI():
     headers={'content-type': 'application/json'}
 
     user_details_headers = {
@@ -60,17 +60,6 @@ class AuditAPI(BaseClient):
         results['status_code'] = self.get_status_code_from_response(response, '[', ']')
         results['Content'] = response.content
         return results
-
-    def test_get_api(self):
-        """
-         Test Get Api
-
-         Examples:
-         | Test Get Api|
-        """
-        response= self.get('/Audit','API')
-        print(response)
-
 
     def get_api_method_with_user_details_headers(self, url,):
         """

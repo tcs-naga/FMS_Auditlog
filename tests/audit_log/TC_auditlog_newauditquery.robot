@@ -57,10 +57,7 @@ TC_008_Verify_Query_Search_With_Multiple_Entity
 
     Query Search With Multiple Entity Or Asset   #${ENTITY}
 
-#TC_009_Verify_Query_Search_With_All_Fields
-#    [Tags]      Regression  test
-#
-#    Query Search With All Fields     ${EVENT}   ${ENTITY}   ${USER}
+    Query Search With All Fields     ${EVENT}   ${ENTITY}   ${USER}
 
 TC_009_Verify_Query_Search_In_All_Fields_With_Multi_Options
     [Tags]      Regression  test
@@ -118,13 +115,6 @@ Query Search With Multiple Entity Or Asset
     ${Entity_Results}=    auditlog.Query Search With Entity Or Asset  ${ENTITY}     ${ENTITY-1}
     Log To Console    ${Entity_Results}
     Should Be Equal     ${Entity_Results}   PASS
-#
-#Query Search With All Fields On Sinle Options
-#    [Arguments]     ${EVENT}   ${ENTITY}   ${USER}
-#    Open Browser And Launch AuditLog Application With Date Search
-#    ${Results}     auditlog.Query Search With All Fields       ${EVENT}   ${ENTITY}   ${USER}
-#    Log To Console  ${Results}
-#    Should Be Equal   ${Results}  PASS
 
 
 Query Search With Date

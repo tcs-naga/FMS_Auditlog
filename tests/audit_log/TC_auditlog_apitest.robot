@@ -11,67 +11,64 @@ Library    DateTime
 *** Test Cases ***
 
 #CreateAudit API__________________________________________________________________________________________________________________
-#TC_001_Verify CreateAudit API In Post Method
-#    [Tags]      Regression  test
-#    Execute Create Audit Post Method
-
-TC_00X_Verify Audit API Get Status Code
+TC_001_Verify CreateAudit API In Post Method
     [Tags]      Regression  test
-    Test api
+    Execute Create Audit Post Method
 
-#TC_002_Verify Audit API Get Status Code
-#    [Tags]      Regression  test
-#    Validate Audit API Get Status Code
-#
-#TC_003_Verify Audit API Content With Given Value
-#    [Tags]      Regression  test
-#    Validate Get API Content With Given Value
-#
-#TC_004_Verify Header Values From Content In Audit API
-#    [Tags]      Regression  test
-#    Validate Header Values From Get API In Content
-#
-#TC_005_Verify Create Audit API In Update Patch Method
-#    [Tags]      Regression  test
-#    Execute Update Audit Patch Method
-#
-#TC_006_Verify Create Audit API In Delte Method
-#    [Tags]      Regression  test
-#
-#    Execute Delete Audit Del Method
-#
-#TC_007_Verify Create Audit API In Archive Patch Method
-#    [Tags]      Regression  test
-#    Execute Create Audit Archive Patch API Method
-#
-#TC_008_Verify Create Audit API In UnArchive Patch Method
-#    [Tags]      Regression  test
-#    Execute Create Audit UnArchive Patch API Method
-#
-##AuditRecordDetails API_______________________________________________________________
-#
-#TC_009_Verify AuditRecordDetails API In Post Method
-#    [Tags]      Regression  test
-#    Execute AuditRecordDetails Post Method
-#
-#TC_010_Verify AuditRecordDetails API Get Status Code
-#     [Tags]      Regression  test
-#    Validate Given Audit Record Details Url Api Get Status Code
-#
-##ExceptionLogger----------------------------------------------------------------------
-#TC_011_Verify ExceptionLogger API Post Method
-#    [Tags]      Regression  test
-#    Execute ExceptionLogger Audit Post Method
-#
-##UserActivityDetails----------------------------------------------------------------------
-#TC_012_Verify UserActivityDetails API Get Method
-#    [Tags]      Regression  test
-#    Validate Given User Activity Details Api Get Status Code
-#
-##UserDetails----------------------------------------------------------------------
-#TC_013_Verify UserDetails API Get Method
-#    [Tags]      Regression  test
-#    Validate Get Status Code For User Details With Headers Api
+
+TC_002_Verify Audit API Get Status Code
+    [Tags]      Regression  test
+    Validate Audit API Get Status Code
+
+TC_003_Verify Audit API Content With Given Value
+    [Tags]      Regression  test
+    Validate Get API Content With Given Value
+
+TC_004_Verify Header Values From Content In Audit API
+    [Tags]      Regression  test
+    Validate Header Values From Get API In Content
+
+TC_005_Verify Create Audit API In Update Patch Method
+    [Tags]      Regression  test
+    Execute Update Audit Patch Method
+
+TC_006_Verify Create Audit API In Delte Method
+    [Tags]      Regression  test
+
+    Execute Delete Audit Del Method
+
+TC_007_Verify Create Audit API In Archive Patch Method
+    [Tags]      Regression  test
+    Execute Create Audit Archive Patch API Method
+
+TC_008_Verify Create Audit API In UnArchive Patch Method
+    [Tags]      Regression  test
+    Execute Create Audit UnArchive Patch API Method
+
+#AuditRecordDetails API_______________________________________________________________
+
+TC_009_Verify AuditRecordDetails API In Post Method
+    [Tags]      Regression  test
+    Execute AuditRecordDetails Post Method
+
+TC_010_Verify AuditRecordDetails API Get Status Code
+     [Tags]      Regression  test
+    Validate Given Audit Record Details Url Api Get Status Code
+
+#ExceptionLogger----------------------------------------------------------------------
+TC_011_Verify ExceptionLogger API Post Method
+    [Tags]      Regression  test
+    Execute ExceptionLogger Audit Post Method
+
+#UserActivityDetails----------------------------------------------------------------------
+TC_012_Verify UserActivityDetails API Get Method
+    [Tags]      Regression  test
+    Validate Given User Activity Details Api Get Status Code
+
+#UserDetails----------------------------------------------------------------------
+TC_013_Verify UserDetails API Get Method
+    [Tags]      Regression  test
+    Validate Get Status Code For User Details With Headers Api
 
 *** Keywords ***
 #POST
@@ -176,6 +173,3 @@ Validate Given User Activity Details Api Get Status Code
 Validate Get Status Code For User Details With Headers Api
     ${result}=    auditlogapi.Get API Method With User Details Headers      ${USER_DETAILS_GET_URL}
     Should Be Equal    ${result}[status_code]     200
-
-Test api
-    auditlogapi.Test Get Api    #${AUDIT_GET_URL}
